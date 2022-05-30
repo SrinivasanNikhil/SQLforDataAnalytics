@@ -1,99 +1,37 @@
-# Section 1 The Managerial Perspective {.unnumbered}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, suppressWarnings()}
+library(DBI)
+library(RMySQL)
+db <- dbConnect(RMySQL::MySQL(),
+                  dbname = "Text",
+                  host = "richardtwatson.com",
+                  user="student",
+                  password = "student")
+```
 
-> *People only see what they are prepared to see*.
+# Section 1 Introduction to SQL {.unnumbered}
+
+> *It is a capital mistake to theorize before one has data.*
 >
-> Ralph Waldo Emerson, *Journals*, 1863
+> Sir Arthur Conan Doyle, "A Scandal in Bohemia," *The Adventures of Sherlock Holmes*, 1891
 
-Organizations are accumulating vast volumes of data because of the ease
-with which data can be captured and distributed in digital format (e.g.,
-smartphone cameras and tweets). The world's data are estimated to be
-doubling every 1-2 years, and large companies now routinely manage
-petabytes (10^15^ bytes) of data every day. Data management is a
-critical function for many organizations.
+The application backlog, a large number of requests for new information systems, has been a recurring problem in many organizations for decades. The demand for new information systems and the need to maintain existing systems have usually outstripped available information systems skills. The application backlog, unfortunately, is not a new problem. In the 1970s, Codd laid out a plan for improving programmer productivity and accelerating systems development by improving the management of data. Codd's **relational model**, designed to solve many of the shortcomings of earlier systems, has long been the most popular database model.
 
-The first section of this book prepares you to see the role of data and
-information in an organization. The managerial perspective on data
-management concentrates on why enterprises design and maintain data
-management systems, or organizational memories. Chapter 1 examines this
-topic by detailing the components of organizational memory and then
-discussing some of its common problems. The intention is to make you
-aware of the scope of data management and its many facets. Chapter 2
-discusses the relationship between information and organizational goals.
-Again, a very broad outlook is adopted in order to provide a sweeping
-perspective on the relationship of information to organizational success
-and change.
+This section develops two key skills---data modeling and query formation---that are required to take advantage of the relational model. You will concentrate on the design and use of relational databases. This very abrupt change in focus is part of the plan to give you a dual understanding of data management. Section 1 is the managerial perspective, whereas this section covers technical skills development. Competent data managers are able to accommodate both views and apply whichever (or some blend of the two) is appropriate.
 
-At this point, we want to give you some ***maps*** for understanding the
-territory you will explore. Since the terrain is possibly very new,
-these maps initially may be hard to read, and so you may need to consult
-them several times before you understand the landscape you are about to
-enter.
+In Chapter 1, many forms of organizational memory were identified, and in this section we focus on files and their components. Thus, only the files branch of organizational memory is detailed in the following figure.
 
-The first map is based on the Newell-Simon model[^1-section-201] of the human
-information processing system, which shows that humans receive input,
-process it, and produce output. The processing is done by a processor,
-which is linked to a memory that stores both data and processes. The
-processor component retrieves both data and processes from memory.
+![](Figures/Section%202/Org%20Memory%20Files.png)
 
-[^1-section-201]: Newell, A., & Simon, H. A. (1972). Human problem solving.
-    Englewood Cliffs, NJ: Prentice-Hall.
+A collection of related files is a **database**. Describing the collection of files as related means that it has a common purpose (e.g., data about students). Sometimes files are also called tables, and there are synonyms for some other terms (the alternative names are shown in parentheses). Files contain **records** (or rows). Each record contains the data for one instance of an observation. For example, if the file stores data about students, each record will contain data about a single student. Records have **fields** (or columns) that store the fine detail of each instance (e.g., student's first name, last name, and date of birth). Fields are composed of **characters** (a, b, c,.., 1, 2, 3,..., %, \$, #,..., A, B, etc.). A **byte**, a unit of storage sufficient to store a single letter (in English), consists of a string of eight contiguous **bits** or binary digits.
 
-![](Figures/Section%201/Simon Newell.png)
+The data management hierarchy stimulates three database design questions:
 
-To understand this model, consider a person arriving on a flight who has
-agreed to meet a fellow traveler in the terminal. She receives a text
-message to meet her friend at B27. The message is input to her human
-information processing system. She retrieves the process for
-interpreting the message (i.e., decoding that B27 means terminal B and
-gate 27). The person then walks to the
-terminal and gate, the output. Sometimes these processes are so well
-ingrained in our memory that we never think about retrieving them. We
-just do them automatically.
+-   What collection of files should the database contain?
 
-Human information processing systems are easily overloaded. Our memory
-is limited, and our ability to process data is restricted; thus we use a
-variety of external tools to extend and augment our capacities. A
-contacts app is an instance of external data memory. A recipe, a
-description of the process for preparing food, is an example of external
-process memory. Smartphones are now the external processor of choice
-that we use to augment our limited processing capacity.
+-   How are these files related?
 
-The original model of human information processing can be extended to
-include external memory, for storing data and processes, and external
-processors, for executing processes.
+-   What fields should each record in the file contain?
 
-![](Figures/Section%201/augmented Simon Newell.png)
+The first objective of this section is to describe data modeling, a technique for answering the three questions. Data modeling helps you to understand the structure and meaning of data, which is necessary before a database can be created. Once a database has been designed, built, and loaded with data, the aim is to deploy it to satisfy management's requests for information. Thus, the second objective is to teach you to query a relational database. The learning of modeling and querying will be intertwined, making it easier to grasp the intent of database design and to understand why data modeling is so critical to making a database an effective tool for managerial decision making.
 
-This model of augmented human information processing translates directly
-to an organizational setting. Organizations collect inputs from the
-environment: market research, customer tweets, and competitor
-actions. They process these data and produce outputs: sales campaigns,
-new products, price changes, and so on. The following figure gives an
-example of how an organization might process data. As a result of some
-market research (input), a marketing analyst (an internal processor)
-retrieves sales data (data) and does a sales forecast (process). The
-analyst also requests a marketing consultant (an external processor) to
-analyze (process) some demographic reports (data) before deciding to
-launch a new sales campaign (output).
-
-![](Figures/Section%201/org%20info%20processing.png)
-
-An organization's memory comes in a variety of forms, as you will see in
-Chapter 1. This memory also can be divided into data and processes. The
-data part may contain information about customers. The process portion
-may store details of how to handle a customer order. Organizations use a
-variety of processors to handle data, including people and computers.
-Organizations also rely on external sources to extend their information
-processing capacity. For example, a business may use a specialist credit
-agency to check a customer's creditworthiness, or an engineering firm
-may use a cloud computing service for structural analysis of a bridge.
-Viewed this way, the augmented human information processing model
-becomes a pattern for an organizational information processing system.
-
-This book focuses on the data side of organizational memory. While it is
-primarily concerned with data stored within the organization, there is
-also coverage of data in external memory. The process side of
-organizational memory is typically covered in a systems analysis and
-design or a business process management course.
-
-\newpage
+Chapter 3 covers modeling a single entity and querying a single-table database. This is the simplest database that can be created. As you will soon discover, a **data model** is a graphical description of the components of a database. One of these components is an entity, some feature of the real world about which data must be stored. This section also introduces the notions of a **data definition language** (DDL), which is used to describe a database, and a **data manipulation language** (DML), which is used to maintain and query a database. Subsequent chapters in this section cover advanced data modeling concepts and querying capabilities.
