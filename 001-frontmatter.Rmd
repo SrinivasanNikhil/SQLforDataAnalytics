@@ -1,7 +1,8 @@
 ---
-# title: "Data Management"
+# title: "Data Management - edited"
 # author: "Richard T. Watson"
 # date: "`r Sys.Date()`"
+# edited by: "Nikhil Srinivasan"
 # output:
 #   html_document:
 #     toc: False
@@ -16,7 +17,7 @@
 
 > Department of MIS
 >
-> Terry College of Business
+> Terry is College of Business
 >
 > The University of Georgia
 

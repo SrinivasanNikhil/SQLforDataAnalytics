@@ -13,4 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
-WebsitePath: ~/Dropbox/R/DataManagement
+WebsitePath: ~/GitHubPages/SQLforDataAnalytics
