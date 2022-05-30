@@ -16,12 +16,6 @@ db <- dbConnect(RMySQL::MySQL(),
 
 The application backlog, a large number of requests for new information systems, has been a recurring problem in many organizations for decades. The demand for new information systems and the need to maintain existing systems have usually outstripped available information systems skills. The application backlog, unfortunately, is not a new problem. In the 1970s, Codd laid out a plan for improving programmer productivity and accelerating systems development by improving the management of data. Codd's **relational model**, designed to solve many of the shortcomings of earlier systems, has long been the most popular database model.
 
-This section develops two key skills---data modeling and query formation---that are required to take advantage of the relational model. You will concentrate on the design and use of relational databases. This very abrupt change in focus is part of the plan to give you a dual understanding of data management. Section 1 is the managerial perspective, whereas this section covers technical skills development. Competent data managers are able to accommodate both views and apply whichever (or some blend of the two) is appropriate.
-
-In Chapter 1, many forms of organizational memory were identified, and in this section we focus on files and their components. Thus, only the files branch of organizational memory is detailed in the following figure.
-
-![](Figures/Section%202/Org%20Memory%20Files.png)
-
 A collection of related files is a **database**. Describing the collection of files as related means that it has a common purpose (e.g., data about students). Sometimes files are also called tables, and there are synonyms for some other terms (the alternative names are shown in parentheses). Files contain **records** (or rows). Each record contains the data for one instance of an observation. For example, if the file stores data about students, each record will contain data about a single student. Records have **fields** (or columns) that store the fine detail of each instance (e.g., student's first name, last name, and date of birth). Fields are composed of **characters** (a, b, c,.., 1, 2, 3,..., %, \$, #,..., A, B, etc.). A **byte**, a unit of storage sufficient to store a single letter (in English), consists of a string of eight contiguous **bits** or binary digits.
 
 The data management hierarchy stimulates three database design questions:
