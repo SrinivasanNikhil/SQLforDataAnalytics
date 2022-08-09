@@ -8,7 +8,6 @@ rmd_files:
   - 002-preface.Rmd
   - 100-section.Rmd
   - 101-singleentity.Rmd
-  - 101-singleentity-test.Rmd
   - 102-onetomany.Rmd
   - 103-manytomany.Rmd
   - 200-sql.Rmd

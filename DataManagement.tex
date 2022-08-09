@@ -1,0 +1,4246 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{data-management-databases-and-organizations}{%
+\section*{Data Management: Databases and
+Organizations}\label{data-management-databases-and-organizations}}
+\addcontentsline{toc}{section}{Data Management: Databases and
+Organizations}
+
+\hypertarget{open-edition}{%
+\subsubsection*{\texorpdfstring{\emph{Open
+Edition}}{Open Edition}}\label{open-edition}}
+\addcontentsline{toc}{subsubsection}{\emph{Open Edition}}
+
+\hypertarget{richard-t.-watson}{%
+\subsubsection*{Richard T. Watson}\label{richard-t.-watson}}
+\addcontentsline{toc}{subsubsection}{Richard T. Watson}
+
+\begin{quote}
+Department of MIS
+
+Terry is College of Business
+
+The University of Georgia
+\end{quote}
+
+Release date 2022-08-09
+
+\includegraphics[width=2.08333in,height=\textheight]{Figures/Front matter/CC.by.png}
+
+The online version of this book is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA
+4.0}.
+
+\newpage
+
+\hypertarget{preface}{%
+\section*{Preface}\label{preface}}
+\addcontentsline{toc}{section}{Preface}
+
+\emph{Editors Note} This is the original preface of the text written by
+the author ``Richard Watson''. I am leaving this preface in place to
+keep the specific acknowledgements made in this document. Not all of the
+content in this preface applies to this version of the text for the SQL
+for Data Analytics course.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+This is not your traditional database textbook. It differs in three
+fundamental ways.
+
+\emph{First}, it is deeper than most database books in its coverage of
+data modeling and SQL. The market seeks graduates who have these
+fundamental skills. Time and again, students who have completed my data
+management class have told me how these skills have been invaluable in
+their first and subsequent jobs. The book places great emphasis on the
+core skills of data management. Consequently, there is a better match
+between the skills you develop and those the market needs. This means
+you will find this text highly relevant.
+
+\emph{Second}, the treatments of data modeling and SQL are intertwined
+because my database teaching experience indicates that students more
+readily understand the purpose of data modeling when they grasp the
+long-term goal---querying a well-designed relational database. The
+double helix, upward, intertwined, spiraling of data modeling and SQL is
+a unique pedagogical feature. Classroom testing indicates it is a
+superior method of teaching compared to handling data modeling and SQL
+separately. You will quickly understand the reason for data modeling and
+appreciate why it is a valuable skill. Also, rapid exposure to SQL means
+you gain hands-on experience more quickly.
+
+\emph{Third}, the book is broader than most database books. Databases
+are one component of an expansive organizational memory. You need to
+develop a wide perspective of data management if you are to comprehend
+fully the organizational role of information systems.
+
+In essence, the book is deeper where it matters---data modeling and
+SQL---and broader to give you a managerial outlook and an understanding
+of the latest technological advancements. Information is a key resource
+for modern organizations. It is a critical input to managerial tasks.
+Because managers need high-quality information to manage change in a
+turbulent, global environment, nearly every organizations has
+established systems for storing and retrieving data, the raw material of
+information. These storage and retrieval systems are an organization's
+memory. The organization relies on them, just as individuals rely on
+their personal memory, to be able to continue as a going concern.
+
+The central concern of information systems management is to design,
+build, and maintain information delivery systems. Information systems
+managemers needs to discover their organization's information
+requirements, which includes the needs of its customers, so that it can
+design systems to serve these demands. It must merge a system's design
+and information technology to build applications that provide the
+organization and its customers with data in a timely manner, appropriate
+formats, and at convenient locations. Furthermore, it must manage
+applications so they evolve to meet changing needs, continue to operate
+under adverse conditions, and are protected from unauthorized access.
+
+An information delivery system has two components: data and processes.
+This book concentrates on data, which is customarily thought of as a
+database. I deliberately set out to extend this horizon, however, by
+including all forms of organizational data stores because I believe you
+need to understand the role of data management that is aligned with
+current practice. In my view, data management is the design and
+maintenance of computer-based organizational memory. Thus, you will find
+chapters on XML and organizational intelligence technologies.
+
+The decision to start the book with a managerial perspective arises from
+the observation that successful information systems practice is based on
+matching managerial needs, social system constraints, and technical
+opportunities in an ecologically sound way. I want you to appreciate the
+big picture before you become immersed in the intricacies of data
+modeling and SQL.
+
+The second section of the book provides in-depth coverage of data
+modeling and SQL. Data modeling is the foundation of database quality. A
+solid grounding in data modeling principles and extensive practice are
+necessary for successful database design. In addition, this section
+exposes you to the full power of SQL.
+
+I intend this book to be a long-term investment. There are useful
+reference sections for data modeling and SQL. The data modeling section
+details the standard structures and their relational mappings. The SQL
+section contains an extensive list of queries that serves as a basis for
+developing other SQL queries. The purpose of these sections is to
+facilitate pattern matching. For example, if you have an SQL query that
+is similar to a previous problem you can rapidly search the SQL
+reference section to find the closest match. You can then use the model
+answer as a guide to formulating the SQL query for the problem at hand.
+These reference sections are another unique teaching feature that will
+serve you well during the course and in your career.
+
+The third section has chapters on R, a statistics and graphics package,
+which provides the foundation necessary for the chapters on data
+visualization, text mining, cluster computing, and dashboards. These
+chapters provide you with the skills they need to work in topical areas
+such as data analytics. The third section, Advanced Data Management,
+which also covers spatial and temporal data, XML, and organizational
+intelligence, and greaph databases
+
+The fourth and final section examines the management of organizational
+data stores. It covers data structures and storage, data processing
+architectures, SQL and Java, data integrity, and data administration.
+
+As a result of completing this text you will
+
+\begin{itemize}
+\item
+  have a broad, managerial perspective of an organization's need for a
+  memory;
+\item
+  be able to design and create a relational database;
+\item
+  be able to formulate complex SQL queries;
+\item
+  be able to use R to create data visualizations, mine text data, write
+  an R script for big data problems, and create dashboards;
+\item
+  understand the purpose of XML and be able to design an XML schema,
+  prepare an XML document, and write an XML stylesheet;
+\item
+  be able to use Cypher to query a graph database
+\item
+  have a sound understanding of database architectures and their
+  managerial implications;
+\item
+  be familiar with the full range of technologies available for
+  organizational memory;
+\item
+  be able to write a Java program to create a table from a CSV file and
+  process a transaction;
+\item
+  understand the fundamentals of data administration;
+\end{itemize}
+
+My goal is to give you a data management text that is innovative,
+relevant, and lively. I trust that you will enjoy learning about
+managing data in today's organization.
+
+\hypertarget{supplements}{%
+\subsection*{Supplements}\label{supplements}}
+\addcontentsline{toc}{subsection}{Supplements}
+
+Accompanying this book are an instructor's manual and an extensive
+\href{https://www.richardtwatson.com/open/}{Web site} that provides -
+slides in PowerPoint format; - all relational tables in the book in
+electronic format; - code for examples in the book; - answers to many of
+the exercises; - additional exercises.
+
+\hypertarget{acknowledgments}{%
+\subsection*{Acknowledgments}\label{acknowledgments}}
+\addcontentsline{toc}{subsection}{Acknowledgments}
+
+I thank my wife, Clare, and son, Ned, for help with prior editions of
+the book. I appreciate the efforts of Christopher Gauthier in converting
+the prior edition to \href{https://bookdown.org}{Bookdown} format.
+
+Richard T. Watson
+
+Athens, Georgia
+
+\newpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
+
+\hypertarget{section-1-introduction-to-sql}{%
+\section*{Section 1 Introduction to
+SQL}\label{section-1-introduction-to-sql}}
+\addcontentsline{toc}{section}{Section 1 Introduction to SQL}
+
+\begin{quote}
+\emph{It is a capital mistake to theorize before one has data.}
+
+Sir Arthur Conan Doyle, ``A Scandal in Bohemia,'' \emph{The Adventures
+of Sherlock Holmes}, 1891
+\end{quote}
+
+The application backlog, a large number of requests for new information
+systems, has been a recurring problem in many organizations for decades.
+The demand for new information systems and the need to maintain existing
+systems have usually outstripped available information systems skills.
+The application backlog, unfortunately, is not a new problem. In the
+1970s, Codd laid out a plan for improving programmer productivity and
+accelerating systems development by improving the management of data.
+Codd's \textbf{relational model}, designed to solve many of the
+shortcomings of earlier systems, has long been the most popular database
+model.
+
+A collection of related files is a \textbf{database}. Describing the
+collection of files as related means that it has a common purpose (e.g.,
+data about students). Sometimes files are also called tables, and there
+are synonyms for some other terms (the alternative names are shown in
+parentheses). Files contain \textbf{records} (or rows). Each record
+contains the data for one instance of an observation. For example, if
+the file stores data about students, each record will contain data about
+a single student. Records have \textbf{fields} (or columns) that store
+the fine detail of each instance (e.g., student's first name, last name,
+and date of birth). Fields are composed of \textbf{characters} (a, b,
+c,.., 1, 2, 3,\ldots, \%, \$, \#,\ldots, A, B, etc.). A \textbf{byte}, a
+unit of storage sufficient to store a single letter (in English),
+consists of a string of eight contiguous \textbf{bits} or binary digits.
+
+The data management hierarchy stimulates three database design
+questions:
+
+\begin{itemize}
+\item
+  What collection of files should the database contain?
+\item
+  How are these files related?
+\item
+  What fields should each record in the file contain?
+\end{itemize}
+
+The first objective of this section is to describe data modeling, a
+technique for answering the three questions. Data modeling helps you to
+understand the structure and meaning of data, which is necessary before
+a database can be created. Once a database has been designed, built, and
+loaded with data, the aim is to deploy it to satisfy management's
+requests for information. Thus, the second objective is to teach you to
+query a relational database. The learning of modeling and querying will
+be intertwined, making it easier to grasp the intent of database design
+and to understand why data modeling is so critical to making a database
+an effective tool for managerial decision making.
+
+Chapter 1 covers modeling a single entity and querying a single-table
+database. This is the simplest database that can be created. As you will
+soon discover, a \textbf{data model} is a graphical description of the
+components of a database. One of these components is an entity, some
+feature of the real world about which data must be stored. This section
+also introduces the notions of a \textbf{data definition language}
+(DDL), which is used to describe a database, and a \textbf{data
+manipulation language} (DML), which is used to maintain and query a
+database. Subsequent chapters in this section cover advanced concepts
+and querying capabilities.
+
+\hypertarget{the-single-entity}{%
+\section{The Single Entity}\label{the-single-entity}}
+
+\begin{quote}
+\emph{I want to be alone.}
+
+Attributed to Greta Garbo
+\end{quote}
+
+\hypertarget{learning-objectives}{%
+\paragraph*{Learning Objectives}\label{learning-objectives}}
+\addcontentsline{toc}{paragraph}{Learning Objectives}
+
+Students completing this chapter will be able to
+
+\begin{itemize}
+\tightlist
+\item
+  write queries for a single-table database.
+\end{itemize}
+
+\hypertarget{the-relational-model}{%
+\subsection{The relational model}\label{the-relational-model}}
+
+The relational model introduced by Codd in 1970 is the most popular
+technology for managing large collections of data. In this chapter, the
+major concepts of the relational model are introduced. Extensive
+coverage of the relational model is left until Chapter 8, by which time
+you will have sufficient practical experience to appreciate fully its
+usefulness, value, and elegance.
+
+A \textbf{relation}, similar to the mathematical concept of a set, is a
+two-dimensional table arranged in rows and columns. This is a very
+familiar idea. You have been using tables for many years. A
+\textbf{relational database} is a collection of relations, where
+\textbf{relation} is a mathematical term for a table. One row of a table
+stores details of one observation, instance, or case of an item about
+which facts are retained---for example, one row for details of a
+particular student. All the rows in a table store data about the same
+type of item. Thus, a database might have one table for student data and
+another table for class data. Similarly, each column in the table
+contains the same type of data. For example, the first column might
+record a student's identification number. A key database design question
+is to decide what to store in each table. What should the rows and
+columns contain?
+
+In a relational database, each row must be uniquely identified. There
+must be a \textbf{primary key}, such as student identifier, so that a
+particular row can be designated. The use of unique identifiers is very
+common. Telephone numbers and e-mail addresses are examples of unique
+identifiers. Selection of the primary key, or unique identifier, is
+another key issue of database design.
+
+\begin{quote}
+💠 \textbf{Global legal entity identifier (LEI)}
+
+There is no global standard for identifying legal entities across
+markets and jurisdictions. The need for such a standard was amplified by
+Lehman Brothers collapse in 2008. Lehman had 209 registered
+subsidiaries, legal entities, in 21 countries, and it was party to more
+than 900,000 derivatives contracts upon its collapse. Key stakeholders,
+such as financial regulators and Lehman's creditors, were unable to
+assess their exposure. Furthermore, others were unable to assess the
+possible ripple on them of the effects of the collapse because of the
+transitive nature of many investments (i.e., A owes B, B owes C, and C
+owes D).
+
+The adoption of a global \href{https://www.lei-worldwide.com}{legal
+entity identifier} (LEI), should improve financial system regulation and
+corporate risk management. Regulators will find it easier to monitor and
+analyze threats to financial stability and risk managers will be more
+able evaluate their companies' risks.
+\end{quote}
+
+The tables in a relational database are \textbf{connected} or
+\textbf{related} by means of the data in the tables. You will learn, in
+the next chapter, that this connection is through a pair of values---a
+primary key and a foreign key. Consider a table of airlines serving a
+city. When examining this table, you may not recognize the code of an
+airline, so you then go to another table to find the name of the
+airline. For example, if you inspect the next table, you find that AM is
+an international airline serving Atlanta.
+
+\emph{International airlines serving Atlanta}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule()
+Airline \\
+\midrule()
+\endhead
+AM \\
+JL \\
+KX \\
+LM \\
+MA \\
+OS \\
+RG \\
+SN \\
+SR \\
+LH \\
+LY \\
+\bottomrule()
+\end{longtable}
+
+If you don't know which airline has the abbreviation AM, then you need
+to look at the table of airline codes to discover that AeroMexico, with
+code AM, serves Atlanta. The two tables are related by airline code.
+Later, you will discover which is the primary key and which is the
+foreign key.
+
+\emph{A partial list of airline codes}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Code & Airline \\
+\midrule()
+\endhead
+AA & American Airlines \\
+AC & Air Canada \\
+AD & Lone Star Airlines \\
+AE & Mandarin Airlines \\
+AF & Air France \\
+AG & Interprovincial Airlines \\
+AI & Air India \\
+AM & AeroMexico \\
+AQ & Aloha Airlines \\
+\bottomrule()
+\end{longtable}
+
+When designing the relational model, Codd provided commands for
+processing multiple records at a time. His intention was to increase the
+productivity of programmers by moving beyond the record-at-a-time
+processing that is found in most programming languages. Consequently,
+the relational model supports set processing (multiple
+records-at-a-time), which is most frequently implemented as
+\textbf{Structured Query Language (SQL).}\footnote{Officially pronounced
+  as ``S-Q-L,'' but often also pronounced as ``sequel''.}
+
+The relational model separates the logical design of a database from its
+physical storage. This notion of \textbf{data independence} simplifies
+data modeling and database programming. In this section, we focus on
+logical database design, and now that you have had a brief introduction
+to the relational model, you are ready to learn data modeling.
+
+\hypertarget{getting-started}{%
+\subsection{Getting started}\label{getting-started}}
+
+As with most construction projects, building a relational database must
+be preceded by a design phase. Data modeling, our design technique, is a
+method for creating a plan or blueprint of a database. The data model
+must accurately mirror real-world relationships if it is to support
+processing business transactions and managerial decision making.
+
+Rather than getting bogged down with a \emph{theory first, application
+later} approach to database design and use, we will start with
+application. We will get back to theory when you have some experience in
+data modeling and database querying. After all, you did not learn to
+talk by first studying sentence formation; you just started by learning
+and using simple words. We start with the simplest data model, a single
+entity, and the simplest database, a single table, as follows.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Share code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Share name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Share price
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Share quantity
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Share dividend
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+PE ratio
+\end{minipage} \\
+\midrule()
+\endhead
+FC & Freedonia Copper & 27.5 & 10,529 & 1.84 & 16 \\
+PT & Patagonian Tea & 55.25 & 12,635 & 2.50 & 10 \\
+AR & Abyssinian Ruby & 31.82 & 22,010 & 1.32 & 13 \\
+SLG & Sri Lankan Gold & 50.37 & 32,868 & 2.68 & 16 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6,390 & 3.00 & 12 \\
+BE & Burmese Elephant & 0.07 & 154,713 & 0.01 & 3 \\
+BS & Bolivian Sheep & 12.75 & 231,678 & 1.78 & 11 \\
+NG & Nigerian Geese & 35.00 & 12,323 & 1.68 & 10 \\
+CS & Canadian Sugar & 52.78 & 4,716 & 2.50 & 15 \\
+ROF & Royal Ostrich Farms & 33.75 & 1,234,923 & 3.00 & 6 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{modeling-a-single-entity-database}{%
+\subsection{Modeling a single-entity
+database}\label{modeling-a-single-entity-database}}
+
+The simplest database contains information about one entity, which is
+some real-world thing. Some entities are physical---CUSTOMER, ORDER, and
+STUDENT; others are abstract or conceptual---WORK ASSIGNMENT, and
+AUTHORSHIP. We represent an entity by a rectangle: the following figure
+shows a representation of the entity SHARE. The name of the entity is
+shown in singular form in uppercase in the top part of the rectangle.
+
+\emph{The entity SHARE}
+
+\includegraphics[width=1.58333in,height=\textheight]{Figures/Chapter 3/share.png}
+
+An entity has characteristics or attributes. An \textbf{attribute} is a
+discrete element of data; it is not usually broken down into smaller
+components. Attributes are describe the data we want to store. Some
+attributes of the entity SHARE are \emph{share code}, \emph{share name},
+\emph{share price}, \emph{share quantity} (number owned), \emph{share
+dividend}, and \emph{PE ratio} (price-to-earnings ratio).\footnote{Attributes
+  are shown in italics.} Attributes are shown below the entity's name.
+Notice that we refer to \emph{share price}, rather than \emph{price}, to
+avoid confusion if there should be another entity with an attribute
+called \emph{price}. Attribute names must be carefully selected so that
+they are self-explanatory and unique. For example, \emph{share dividend}
+is easily recognized as belonging to the entity SHARE.
+
+\emph{The entity SHARE and its attributes}
+
+\includegraphics[width=1.58333in,height=\textheight]{Figures/Chapter 3/share with attributes.png}
+
+An \textbf{instance} is a particular occurrence of an entity (e.g.,
+facts about Freedonia Copper). To avoid confusion, each instance of an
+entity needs to be uniquely identified. Consider the case of customer
+billing. In most cases, a request to bill Smith \$100 cannot be
+accurately processed because a firm might have more than one Smith in
+its customer file. If a firm has carefully controlled procedures for
+ensuring that each customer has a unique means of identification, then a
+request to bill customer number 1789 \$100 can be accurately processed.
+An attribute or collection of attributes that uniquely identifies an
+instance of an entity is called an \textbf{identifier}. The identifier
+for the entity SHARE is \emph{share code}, a unique identifier assigned
+by the stock exchange to a firm issuing shares.
+
+There may be several attributes, or combinations of attributes, that are
+feasible identifiers for an instance of an entity. Attributes that are
+identifiers are prefixed by an asterisk. The following figure shows an
+example of a representation of an entity, its attributes, and
+identifier.
+
+\emph{The entity SHARE, its attributes, and identifier}
+
+\includegraphics[width=1.58333in,height=\textheight]{Figures/Chapter 3/share with identifier.png}
+
+Briefly, entities are things in the environment about which we wish to
+store information. Attributes describe an entity. An entity must have a
+unique identifier.
+
+In this book, MySQL is the relational database for teaching SQL. Because
+SQL is a standard, it does not matter which implementation of the
+relational model you use as the SQL language is common across both the
+proprietary and open variants.{[}\^{}singleentity-3{]}
+
+SQL statements can be written in any mix of valid upper and lowercase
+characters. To make it easier for you to learn the syntax, this book
+adopts the following conventions:
+
+\begin{itemize}
+\item
+  SQL keywords are in uppercase.
+\item
+  Table and column names are in lowercase.
+\end{itemize}
+
+There are more elaborate layout styles, but we will bypass those because
+it is more important at this stage to learn SQL. You should lay out your
+SQL statements so that they are easily read by you and others.
+
+The following table shows some of the data types supported by most
+relational databases. Other implementations of the relational model may
+support some of these data types and additional ones. It is a good idea
+to review the available data types in your RDBMS before defining your
+first table.
+
+\emph{Some allowable data types}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1690}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1690}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6620}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Data type
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule()
+\endhead
+Numeric & SMALLINT & A 15-bit signed binary value \\
+& INTEGER & A 31-bit signed binary value \\
+& FLOAT(p) & A scientific format number of p binary digits precision \\
+& DECIMAL(p,q) & A packed decimal number of p digits total length; q
+decimal spaces to the right of the decimal point may be specified \\
+String & CHAR(n) & A fixed-length string of n characters \\
+& VARCHAR(n) & A variable-length string of up to n characters \\
+& text & A variable-length string of up to 65,535 characters \\
+Date/time & DATE & Date in the form yyyymmdd \\
+& TIME & Time in the form hhmmss \\
+& timesTAMP & A combination of date and time to the nearest
+microsecond \\
+& time with time zone & Same as time, with the addition of an offset
+from universal time coordinated (UTC) of the specified time \\
+& timestamp with time zone & Same as timestamp, with the addition of an
+offset from UTC of the specified time \\
+Logical & Boolean & A set of truth values: TRUE, FALSE, or UNKNOWN \\
+\bottomrule()
+\end{longtable}
+
+The CHAR and VARCHAR data types are similar but differ in the way
+character strings are stored and retrieved. Both can be up to 255
+characters long. The length of a CHAR column is fixed to the declared
+length. When values are stored, they are right-padded with spaces to the
+specified length. When CHAR values are retrieved, trailing spaces are
+removed. VARCHAR columns store variable-length strings and use only as
+many characters as are needed to store the string. Values are not
+padded; instead, trailing spaces are removed. In this book, we use
+VARCHAR to define most character strings, unless they are short (less
+than five characters is a good rule-of-thumb).
+
+The data for the \texttt{share} table will be used in subsequent
+examples. If you have ready access to a relational database, it is a
+good idea to now create a table and enter the data. Then you will be
+able to use these data to practice querying the table.
+
+\emph{Data for share}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\toprule()
+*Code & Name & Price & Quantity & Dividend & PE \\
+\midrule()
+\endhead
+FC & Freedonia Copper & 27.5 & 10,529 & 1.84 & 16 \\
+PT & Patagonian Tea & 55.25 & 12,635 & 2.50 & 10 \\
+AR & Abyssinian Ruby & 31.82 & 22,010 & 1.32 & 13 \\
+SLG & Sri Lankan Gold & 50.37 & 32,868 & 2.68 & 16 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6,390 & 3.00 & 12 \\
+BE & Burmese Elephant & 0.07 & 154,713 & 0.01 & 3 \\
+BS & Bolivian Sheep & 12.75 & 231,678 & 1.78 & 11 \\
+NG & Nigerian Geese & 35.00 & 12,323 & 1.68 & 10 \\
+CS & Canadian Sugar & 52.78 & 4,716 & 2.50 & 15 \\
+ROF & Royal Ostrich Farms & 33.75 & 1,234,923 & 3.00 & 6 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{querying-a-single-table-database}{%
+\subsection{Querying a single-table
+database}\label{querying-a-single-table-database}}
+
+The objective of developing a database is to make it easier to use the
+stored data to solve problems. Typically, a manager raises a question
+(e.g., How many shares have a PE ratio greater than 12?). A question or
+request for information, usually called a query, is then translated into
+a specific data manipulation or query language. The most widely used
+query language for relational databases is SQL. After the query has been
+executed, the resulting data are displayed. In the case of a relational
+database, the answer to a query is always a table.
+
+There is also a query language called \textbf{relational algebra}, which
+describes a set of operations on tables. Sometimes it is useful to think
+of queries in terms of these operations. Where appropriate, we will
+introduce the corresponding relational algebra operation.
+
+Generally we use a four-phase format for describing queries:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A brief explanation of the query's purpose
+\item
+  The query in italics, prefixed by •, and some phrasing you might
+  expect from a manager
+\item
+  The SQL version of the query
+\item
+  The results of the query.
+\end{enumerate}
+
+\hypertarget{displaying-an-entire-table}{%
+\subsubsection{Displaying an entire
+table}\label{displaying-an-entire-table}}
+
+All the data in a table can be displayed using the SELECT statement. In
+SQL, the \emph{all} part is indicated by an asterisk (*).
+
+List all data in the share table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{Displaying records 1 - 10}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 \\
+BE & Burmese Elephant & 0.07 & 154713 & 0.01 & 3 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 \\
+CS & Canadian Sugar & 52.78 & 4716 & 2.50 & 15 \\
+FC & Freedonia Copper & 27.50 & 10529 & 1.84 & 16 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3.00 & 12 \\
+NG & Nigerian Geese & 35.00 & 12323 & 1.68 & 10 \\
+PT & Patagonian Tea & 55.25 & 12635 & 2.50 & 10 \\
+ROF & Royal Ostrich Farms & 33.75 & 1234923 & 3.00 & 6 \\
+SLG & Sri Lankan Gold & 50.37 & 32868 & 2.68 & 16 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{projectchoosing-columns}{%
+\subsubsection{Project---choosing
+columns}\label{projectchoosing-columns}}
+
+The relational algebra operation \textbf{project} creates a new table
+from the columns of an existing table. Project takes a vertical slice
+through a table by selecting all the values in specified columns. The
+projection of \texttt{share} on columns \texttt{shrfirm} and
+\texttt{shrpe} produces a new table with 10 rows and 2 columns. The SQL
+syntax for the project operation simply lists the columns to be
+displayed.
+
+\emph{Report a firm's name and price-earnings ratio.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrpe }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{Displaying records 1 - 10}\tabularnewline
+\toprule()
+shrfirm & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm & shrpe \\
+\midrule()
+\endhead
+Abyssinian Ruby & 13 \\
+Burmese Elephant & 3 \\
+Bolivian Sheep & 11 \\
+Canadian Sugar & 15 \\
+Freedonia Copper & 16 \\
+Indian Lead \& Zinc & 12 \\
+Nigerian Geese & 10 \\
+Patagonian Tea & 10 \\
+Royal Ostrich Farms & 6 \\
+Sri Lankan Gold & 16 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{restrictchoosing-rows}{%
+\subsubsection{Restrict---choosing rows}\label{restrictchoosing-rows}}
+
+The relational algebra operation \textbf{restrict} creates a new table
+from the rows of an existing table. The operation restricts the new
+table to those rows that satisfy a specified condition. Restrict takes
+all columns of an existing table but only those rows that meet the
+specified condition. The restriction of \texttt{share} to those rows
+where the PE ratio is less than 12 will give a new table with five rows
+and six columns.
+
+Restrict is implemented in SQL using the WHERE clause to specify the
+condition on which rows are restricted.
+
+\emph{Get all firms with a price-earnings ratio less than 12.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{\textless{}} \DecValTok{12}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{5 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+BE & Burmese Elephant & 0.07 & 154713 & 0.01 & 3 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 \\
+NG & Nigerian Geese & 35.00 & 12323 & 1.68 & 10 \\
+PT & Patagonian Tea & 55.25 & 12635 & 2.50 & 10 \\
+ROF & Royal Ostrich Farms & 33.75 & 1234923 & 3.00 & 6 \\
+\bottomrule()
+\end{longtable}
+
+In this example, we have a less than condition for the WHERE clause. All
+permissible comparison operators are listed below.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Operator & Meaning \\
+\midrule()
+\endhead
+= & Equal to \\
+\textless{} & Less than \\
+\textless= & Less than orequal to \\
+\textgreater{} & Greater than \\
+\textgreater= & Greater than or equal to \\
+\textless\textgreater{} & Not equal to \\
+\bottomrule()
+\end{longtable}
+
+In addition to the comparison operators, the BETWEEN construct is
+available.
+
+The expression \texttt{a\ BETWEEN\ x\ AND\ y} is equivalent to
+\texttt{a\ \textgreater{}=\ x\ AND\ a\ \textless{}=\ y}.
+
+\hypertarget{combining-project-and-restrictchoosing-rows-and-columns}{%
+\subsubsection{Combining project and restrict---choosing rows and
+columns}\label{combining-project-and-restrictchoosing-rows-and-columns}}
+
+SQL permits project and restrict to be combined. A single SQL SELECT
+statement can specify which columns to project and which rows to
+restrict.
+
+\emph{List the name, price, quantity, and dividend of each firm where
+the share holding is at least 100,000.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrprice, shrqty, shrdiv }\KeywordTok{FROM} \KeywordTok{share}
+  \KeywordTok{WHERE}\NormalTok{ shrqty }\OperatorTok{\textgreater{}=} \DecValTok{100000}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{3 records}\tabularnewline
+\toprule()
+shrfirm & shrprice & shrqty & shrdiv \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm & shrprice & shrqty & shrdiv \\
+\midrule()
+\endhead
+Burmese Elephant & 0.07 & 154713 & 0.01 \\
+Bolivian Sheep & 12.75 & 231678 & 1.78 \\
+Royal Ostrich Farms & 33.75 & 1234923 & 3.00 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{more-about-where}{%
+\subsubsection{More about WHERE}\label{more-about-where}}
+
+The WHERE clause can contain several conditions linked by AND or OR. A
+clause containing AND means all specified conditions must be true for a
+row to be selected. In the case of OR, at least one of the conditions
+must be true for a row to be selected.
+
+\emph{Find all firms where the PE is 12 or higher and the share holding
+is less than 10,000.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share}
+  \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{\textgreater{}=} \DecValTok{12} \KeywordTok{AND}\NormalTok{ shrqty }\OperatorTok{\textless{}} \DecValTok{10000}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+CS & Canadian Sugar & 52.78 & 4716 & 2.5 & 15 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3.0 & 12 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{the-power-of-the-primary-key}{%
+\subsubsection{The power of the primary
+key}\label{the-power-of-the-primary-key}}
+
+The purpose the primary key is to guarantee that any row in a table can
+be uniquely addressed. In this example, we use \texttt{shrcode} to
+return a single row because \texttt{shrcode} is unique for each instance
+of \texttt{share}. The sought code (AR) must be specified in quotes
+because \texttt{shrcode} was defined as a character string when the
+table was created.
+
+\emph{Report firms whose code is AR.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrcode }\OperatorTok{=} \StringTok{\textquotesingle{}AR\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 \\
+\bottomrule()
+\end{longtable}
+
+A query based on a non-primary-key column cannot guarantee that a single
+row is accessed, as the following illustrates.
+
+\emph{Report firms with a dividend of 2.50.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrdiv }\OperatorTok{=} \FloatTok{2.5}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+CS & Canadian Sugar & 52.78 & 4716 & 2.5 & 15 \\
+PT & Patagonian Tea & 55.25 & 12635 & 2.5 & 10 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{the-in-crowd}{%
+\subsubsection{The IN crowd}\label{the-in-crowd}}
+
+The keyword IN is used with a list to specify a set of values. IN is
+always paired with a column name. All rows for which a value in the
+specified column has a match in the list are selected. It is a simpler
+way of writing a series of OR statements.
+
+\emph{Report data on firms with codes of FC, AR, or SLG.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrcode }\KeywordTok{IN}\NormalTok{ (}\StringTok{\textquotesingle{}FC\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}AR\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}SLG\textquotesingle{}}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+The foregoing query could have also been written as
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share}
+  \KeywordTok{WHERE}\NormalTok{ shrcode }\OperatorTok{=} \StringTok{\textquotesingle{}FC\textquotesingle{}} \KeywordTok{or}\NormalTok{ shrcode }\OperatorTok{=} \StringTok{\textquotesingle{}AR\textquotesingle{}} \KeywordTok{or}\NormalTok{ shrcode }\OperatorTok{=} \StringTok{\textquotesingle{}SLG\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{3 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 \\
+FC & Freedonia Copper & 27.50 & 10529 & 1.84 & 16 \\
+SLG & Sri Lankan Gold & 50.37 & 32868 & 2.68 & 16 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{the-not-in-crowd}{%
+\subsubsection{The NOT IN crowd}\label{the-not-in-crowd}}
+
+A NOT IN list is used to report instances that do not match any of the
+values.
+
+\emph{Report all firms other than those with the code CS or PT.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrcode }\KeywordTok{NOT} \KeywordTok{IN}\NormalTok{ (}\StringTok{\textquotesingle{}CS\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}PT\textquotesingle{}}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+is equivalent to
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrcode }\OperatorTok{\textless{}\textgreater{}} \StringTok{\textquotesingle{}CS\textquotesingle{}} \KeywordTok{AND}\NormalTok{ shrcode }\OperatorTok{\textless{}\textgreater{}} \StringTok{\textquotesingle{}PT\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{8 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 \\
+BE & Burmese Elephant & 0.07 & 154713 & 0.01 & 3 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 \\
+FC & Freedonia Copper & 27.50 & 10529 & 1.84 & 16 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3.00 & 12 \\
+NG & Nigerian Geese & 35.00 & 12323 & 1.68 & 10 \\
+ROF & Royal Ostrich Farms & 33.75 & 1234923 & 3.00 & 6 \\
+SLG & Sri Lankan Gold & 50.37 & 32868 & 2.68 & 16 \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+❓ \emph{Skill Builder}
+\end{quote}
+
+\begin{quote}
+List those shares where the value of the holding exceeds one million.
+\end{quote}
+
+\hypertarget{ordering-columns}{%
+\subsubsection{Ordering columns}\label{ordering-columns}}
+
+The order of reporting columns is identical to their order in the SQL
+command. For instance, compare the output of the following queries.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrcode, shrfirm }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{=} \DecValTok{10}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+shrcode & shrfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm \\
+\midrule()
+\endhead
+NG & Nigerian Geese \\
+PT & Patagonian Tea \\
+\bottomrule()
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrcode }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{=} \DecValTok{10}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+shrfirm & shrcode \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm & shrcode \\
+\midrule()
+\endhead
+Nigerian Geese & NG \\
+Patagonian Tea & PT \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{regular-expressionpattern-matching}{%
+\subsubsection{Regular expression---pattern
+matching}\label{regular-expressionpattern-matching}}
+
+Regular expression is a concise and powerful method for searching for a
+specified pattern in a nominated column. Regular expression processing
+is supported by languages such as Java, R, and PHP. In this chapter, we
+introduce a few typical regular expressions and will continue developing
+your knowledge of this feature in the next chapter.
+
+\hypertarget{search-for-a-string}{%
+\paragraph{Search for a string}\label{search-for-a-string}}
+
+\emph{List all firms containing `Ruby' in their name.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrfirm REGEXP }\StringTok{\textquotesingle{}Ruby\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+shrfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm \\
+\midrule()
+\endhead
+Abyssinian Ruby \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-for-alternative-strings}{%
+\paragraph{Search for alternative
+strings}\label{search-for-alternative-strings}}
+
+In some situations you want to find columns that contain more than one
+string. In this case, we use the alternation symbol `\textbar{}' to
+indicate the alternatives being sought. For example, a\textbar b finds
+`a' or `b'.
+
+\emph{List firms containing gold or zinc in their name, irrespective of
+case.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrfirm REGEXP }\StringTok{\textquotesingle{}gold|zinc|Gold|Zinc\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+shrfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm \\
+\midrule()
+\endhead
+Indian Lead \& Zinc \\
+Sri Lankan Gold \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-for-a-beginning-string}{%
+\paragraph{Search for a beginning
+string}\label{search-for-a-beginning-string}}
+
+If you are interested in finding a value in a column that starts with a
+particular character string, then use \^{} to indicate this option.
+
+\emph{List the firms whose name begins with Sri.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrfirm REGEXP }\StringTok{\textquotesingle{}\^{}Sri\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+shrfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm \\
+\midrule()
+\endhead
+Sri Lankan Gold \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-for-an-ending-string}{%
+\paragraph{Search for an ending
+string}\label{search-for-an-ending-string}}
+
+If you are interested in finding if a value in a column ends with a
+particular character string, then use \$ to indicate this option.
+
+\emph{List the firms whose name ends with Geese.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrfirm REGEXP }\StringTok{\textquotesingle{}Geese$\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+shrfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm \\
+\midrule()
+\endhead
+Nigerian Geese \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+❓ \emph{Skill builder}
+\end{quote}
+
+\begin{quote}
+List the firms containing ``ian'' in their name.
+\end{quote}
+
+\hypertarget{ordering-rows}{%
+\subsubsection{Ordering rows}\label{ordering-rows}}
+
+People can generally process an ordered (e.g., sorted alphabetically)
+report faster than an unordered one. In SQL, the ORDER BY clause
+specifies the row order in a report. The default ordering sequence is
+ascending (A before B, 1 before 2). Descending is specified by adding
+DESC after the column name.
+
+\emph{List all firms where PE is at least 10, and order the report in
+descending PE. Where PE ratios are identical, list firms in alphabetical
+order.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{\textgreater{}=} \DecValTok{10}
+  \KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ shrpe }\KeywordTok{DESC}\NormalTok{, shrfirm;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llrrrr@{}}
+\caption{8 records}\tabularnewline
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrcode & shrfirm & shrprice & shrqty & shrdiv & shrpe \\
+\midrule()
+\endhead
+FC & Freedonia Copper & 27.50 & 10529 & 1.84 & 16 \\
+SLG & Sri Lankan Gold & 50.37 & 32868 & 2.68 & 16 \\
+CS & Canadian Sugar & 52.78 & 4716 & 2.50 & 15 \\
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3.00 & 12 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 \\
+NG & Nigerian Geese & 35.00 & 12323 & 1.68 & 10 \\
+PT & Patagonian Tea & 55.25 & 12635 & 2.50 & 10 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{numeric-versus-character-sorting}{%
+\subsubsection{Numeric versus character
+sorting}\label{numeric-versus-character-sorting}}
+
+Numeric data in character fields (e.g., a product code) do not always
+sort the way you initially expect. The difference arises from the way
+data are stored:
+
+\begin{itemize}
+\item
+  Numeric fields are right justified and have leading zeros.
+\item
+  Character fields are left justified and have trailing spaces.
+\end{itemize}
+
+For example, the value 1066 stored as CHAR(4) would be stored as `1066'
+and the value 45 would be stored as `45'. If the column containing these
+data is sorted in ascending order, then `1066' precedes `45' because the
+leftmost character `1' is less than `4'. You can avoid this problem by
+always storing numeric values as numeric data types (e.g., integer or
+decimal) or preceding numeric values with zeros when they are stored as
+character data. Alternatively, start numbering at 1,000 so that all
+values are four digits, though the best solution is to store numeric
+data as numbers rather than characters.
+
+\hypertarget{derived-data}{%
+\subsubsection{Derived data}\label{derived-data}}
+
+One of the important principles of database design is to avoid
+redundancy. One form of redundancy is including a column in a table when
+these data can be derived from other columns. For example, we do not
+need a column for yield because it can be calculated by dividing
+dividend by price and multiplying by 100 to obtain the yield as a
+percentage. This means that the query language does the calculation when
+the value is required.
+
+\emph{Get firm name, price, quantity, and firm yield.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrprice, shrqty, shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100} \KeywordTok{AS}\NormalTok{ yield }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Displaying records 1 - 10}\tabularnewline
+\toprule()
+shrfirm & shrprice & shrqty & yield \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm & shrprice & shrqty & yield \\
+\midrule()
+\endhead
+Abyssinian Ruby & 31.82 & 22010 & 4.148334 \\
+Burmese Elephant & 0.07 & 154713 & 14.285714 \\
+Bolivian Sheep & 12.75 & 231678 & 13.960784 \\
+Canadian Sugar & 52.78 & 4716 & 4.736643 \\
+Freedonia Copper & 27.50 & 10529 & 6.690909 \\
+Indian Lead \& Zinc & 37.75 & 6390 & 7.947020 \\
+Nigerian Geese & 35.00 & 12323 & 4.800000 \\
+Patagonian Tea & 55.25 & 12635 & 4.524887 \\
+Royal Ostrich Farms & 33.75 & 1234923 & 8.888889 \\
+Sri Lankan Gold & 50.37 & 32868 & 5.320627 \\
+\bottomrule()
+\end{longtable}
+
+You can give the results of the calculation a column name. In this case,
+a good choice is \texttt{yield}. Note the use of AS to indicate the name
+of the column in which the results of the calculation are displayed.
+
+In the preceding query, the keyword AS is introduced to specify an
+alias, or temporary name. The statement specifies that the result of the
+calculation is to be reported under the column heading \texttt{yield}.
+You can rename any column or specify a name for the results of an
+expression using an alias.
+
+\hypertarget{aggregate-functions}{%
+\subsubsection{Aggregate functions}\label{aggregate-functions}}
+
+SQL has built-in functions to enhance its retrieval power and handle
+many common aggregation queries, such as computing the total value of a
+column. Four of these functions (AVG, SUM, MIN, and MAX) work very
+similarly. COUNT is a little different.
+
+\hypertarget{count}{%
+\paragraph{COUNT}\label{count}}
+
+COUNT computes the number of rows in a table. Use COUNT(*) to count all
+rows irrespective of their content (i.e., null or not null), and use
+COUNT(\texttt{columnname}) to count rows without a null value for
+\texttt{columname}. Count can be used with a WHERE clause to specify a
+condition.
+
+\emph{How many firms are there in the portfolio?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{COUNT}\NormalTok{(shrcode) }\KeywordTok{AS}\NormalTok{ investments }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+investments \\
+\midrule()
+\endfirsthead
+\toprule()
+investments \\
+\midrule()
+\endhead
+10 \\
+\bottomrule()
+\end{longtable}
+
+\emph{How many firms have a holding greater than 50,000?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{COUNT}\NormalTok{(shrfirm) }\KeywordTok{AS}\NormalTok{ bigholdings }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrqty }\OperatorTok{\textgreater{}} \DecValTok{50000}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+bigholdings \\
+\midrule()
+\endfirsthead
+\toprule()
+bigholdings \\
+\midrule()
+\endhead
+3 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{avgaveraging}{%
+\paragraph{AVG---averaging}\label{avgaveraging}}
+
+AVG computes the average of the values in a column of numeric data. Null
+values in the column are not included in the calculation.
+
+\emph{Find the average dividend.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(shrdiv) }\KeywordTok{AS}\NormalTok{ avgdiv }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+avgdiv \\
+\midrule()
+\endfirsthead
+\toprule()
+avgdiv \\
+\midrule()
+\endhead
+2.031 \\
+\bottomrule()
+\end{longtable}
+
+\emph{What is the average yield for the portfolio?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100}\NormalTok{) }\KeywordTok{AS}\NormalTok{ avgyield }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+avgyield \\
+\midrule()
+\endfirsthead
+\toprule()
+avgyield \\
+\midrule()
+\endhead
+7.530381 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{sum-min-and-max}{%
+\paragraph{SUM, MIN, and MAX}\label{sum-min-and-max}}
+
+SUM, MIN, and MAX differ in the statistic they calculate but are used
+similarly to AVG. As with AVG, null values in a column are not included
+in the calculation. SUM computes the sum of a column of values. MIN
+finds the smallest value in a column; MAX finds the largest.
+
+\hypertarget{subqueries}{%
+\subsubsection{Subqueries}\label{subqueries}}
+
+Sometimes we need the answer to another query before we can write the
+query of ultimate interest. For example, to list all shares with a PE
+ratio greater than the portfolio average, you first must find the
+average PE ratio for the portfolio. You could do the query in two
+stages:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(shrpe) }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+and
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrpe }\KeywordTok{FROM} \KeywordTok{share} \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{\textgreater{}}\NormalTok{ x;}
+\end{Highlighting}
+\end{Shaded}
+
+where x is the value returned from the first query.
+
+Unfortunately, the two-stage method introduces the possibility of
+errors. You might forget the value returned by the first query or enter
+it incorrectly. It also takes longer to get the results of the query. We
+can solve these problems by using parentheses to indicate the first
+query is nested within the second one. As a result, the value returned
+by the inner or nested subquery, the one in parentheses, is used in the
+outer query. In the following example, the nested query returns 11.20,
+which is then automatically substituted in the outer query.
+
+\emph{Report all firms with a PE ratio greater than the average for the
+portfolio.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrpe }\KeywordTok{FROM} \KeywordTok{share}
+  \KeywordTok{WHERE}\NormalTok{ shrpe }\OperatorTok{\textgreater{}}\NormalTok{ (}\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(shrpe) }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{5 records}\tabularnewline
+\toprule()
+shrfirm & shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrfirm & shrpe \\
+\midrule()
+\endhead
+Abyssinian Ruby & 13 \\
+Canadian Sugar & 15 \\
+Freedonia Copper & 16 \\
+Indian Lead \& Zinc & 12 \\
+Sri Lankan Gold & 16 \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+⚠️ The preceding query is often mistakenly written as SELECT shrfirm,
+shrpe from share WHERE shrpe \textgreater{} avg(shrpe); You need to use
+a subquery to find the average, so the computed value can be used in the
+outer query
+\end{quote}
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+Find the name of the firm for which the value of the holding is
+greatest.
+\end{quote}
+
+\hypertarget{distincteliminating-duplicate-rows}{%
+\paragraph{DISTINCT---eliminating duplicate
+rows}\label{distincteliminating-duplicate-rows}}
+
+The DISTINCT clause is used to eliminate duplicate rows. It can be used
+with column functions or before a column name. When used with a column
+function, it ignores duplicate values.
+
+\emph{Report the different values of the PE ratio.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \KeywordTok{DISTINCT}\NormalTok{ shrpe }\KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{8 records}\tabularnewline
+\toprule()
+shrpe \\
+\midrule()
+\endfirsthead
+\toprule()
+shrpe \\
+\midrule()
+\endhead
+13 \\
+3 \\
+11 \\
+15 \\
+16 \\
+12 \\
+10 \\
+6 \\
+\bottomrule()
+\end{longtable}
+
+\emph{Find the number of different PE ratios.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{COUNT}\NormalTok{(}\KeywordTok{DISTINCT}\NormalTok{ shrpe) }\KeywordTok{as} \StringTok{\textquotesingle{}Different PEs\textquotesingle{}} \KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}r@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+Different PEs \\
+\midrule()
+\endfirsthead
+\toprule()
+Different PEs \\
+\midrule()
+\endhead
+8 \\
+\bottomrule()
+\end{longtable}
+
+When used before a column name, DISTINCT prevents the selection of
+duplicate rows. Notice a slightly different use of the keyword AS. In
+this case, because the alias includes a space, the entire alias is
+enclosed in straight quotes.
+
+\hypertarget{quotes}{%
+\subsubsection*{Quotes}\label{quotes}}
+\addcontentsline{toc}{subsubsection}{Quotes}
+
+There are three types of quotes that you can typically use with SQL.
+Double and single quotes are equivalent and can be used interchangeably.
+Note that single and double quotes must be straight rather than curly,
+and the back quote is to the left of the 1 key.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Type of quote & Representation \\
+\midrule()
+\endhead
+Single & \textbf{'} \\
+Double & \textbf{``} \\
+Back & \textbf{`} \\
+\bottomrule()
+\end{longtable}
+
+The following SQL illustrates the use of three types of quotes to find a
+person with a last name of O'Hara and where the column names are
+\texttt{person\ first} and \texttt{person\ last}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ \textasciigrave{}person first\textasciigrave{} }\KeywordTok{FROM}\NormalTok{ person }\KeywordTok{WHERE}\NormalTok{ \textasciigrave{}person last\textasciigrave{} }\OperatorTok{=} \OtherTok{"O\textquotesingle{}Hara"}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+person first \\
+\midrule()
+\endfirsthead
+\toprule()
+person first \\
+\midrule()
+\endhead
+Sheila \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{summary}{%
+\subsection*{Summary}\label{summary}}
+\addcontentsline{toc}{subsection}{Summary}
+
+In SQL, queries are written using the SELECT statement. Project
+(choosing columns) and restrict (choosing rows) are common table
+operations. The WHERE clause is used to specify row selection criteria.
+WHERE can be combined with IN and NOT IN, which specify values for a
+single column. The rows of a report are sorted using the ORDER BY
+clause. Arithmetic expressions can appear in SQL statements, and SQL has
+built-in functions for common arithmetic operations. A subquery is a
+query within a query. Regular expressions are used to find string
+patterns within character strings. Duplicate rows are eliminated with
+the DISTINCT clause.
+
+\hypertarget{key-terms-and-concepts}{%
+\subsection*{Key terms and concepts}\label{key-terms-and-concepts}}
+\addcontentsline{toc}{subsection}{Key terms and concepts}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+\endhead
+Alias & Instance \\
+AS & MAX \\
+Attribute & MIN \\
+AVG & NOT IN \\
+Column & ORDER BY \\
+COUNT & Primary key \\
+CREATE & Project \\
+Data modeling & Relational database \\
+Data type & Restrict \\
+Database & Row \\
+DELETE & SELECT \\
+DISTINCT & SQL \\
+Entity & Subquery \\
+Entity integrity rule & SUM \\
+Identifier & Table \\
+IN & UPDATE \\
+INSERT & WHERE \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{exercises}{%
+\subsection*{Exercises}\label{exercises}}
+\addcontentsline{toc}{subsection}{Exercises}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Do the following queries using SQL:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    List a share's name and its code.
+  \item
+    List full details for all shares with a price less than \$1.
+  \item
+    List the names and prices of all shares with a price of at least
+    \$10.
+  \item
+    Create a report showing firm name, share price, share holding, and
+    total value of shares held. (Value of shares held is price times
+    quantity.)
+  \item
+    List the names of all shares with a yield exceeding 5 percent.
+  \item
+    Report the total dividend payment of Patagonian Tea. (The total
+    dividend payment is dividend times quantity.)
+  \item
+    Find all shares where the price is less than 20 times the dividend.
+  \item
+    Find the share(s) with the minimum yield.
+  \item
+    Find the total value of all shares with a PE ratio \textgreater{}
+    10.
+  \item
+    Find the share(s) with the maximum total dividend payment.
+  \item
+    Find the value of the holdings in Abyssinian Ruby and Sri Lankan
+    Gold.
+  \item
+    Find the yield of all firms except Bolivian Sheep and Canadian
+    Sugar.
+  \item
+    Find the total value of the portfolio.
+  \item
+    List firm name and value in descending order of value.
+  \item
+    List shares with a firm name containing ``Gold.''
+  \item
+    Find shares with a code starting with ``B.''
+  \end{enumerate}
+\item
+  Run the following queries and explain the differences in output. Write
+  each query as a manager might state it.
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    SELECT shrfirm FROM share WHERE shrfirm NOT REGEXP `s';
+  \item
+    SELECT shrfirm FROM share WHERE shrfirm NOT REGEXP `S';
+  \item
+    SELECT shrfirm FROM share WHERE shrfirm NOT REGEXP `s\textbar S';
+  \item
+    SELECT shrfirm FROM share WHERE shrfirm NOT REGEXP `\^{}S';
+  \item
+    SELECT shrfirm FROM share WHERE shrfirm NOT REGEXP `s\$';
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{the-one-to-many-relationship}{%
+\section{The One-to-Many
+Relationship}\label{the-one-to-many-relationship}}
+
+\begin{quote}
+\emph{Cow of many---well milked and badly fed.}
+
+Spanish proverb
+\end{quote}
+
+\hypertarget{learning-objectives-1}{%
+\paragraph*{Learning Objectives}\label{learning-objectives-1}}
+\addcontentsline{toc}{paragraph}{Learning Objectives}
+
+Students completing this chapter will be able to
+
+\begin{itemize}
+\tightlist
+\item
+  write queries for a database with a one-to-many relationship.
+\end{itemize}
+
+\hypertarget{relationships}{%
+\subsection{Relationships}\label{relationships}}
+
+Entities are not isolated; they are related to other entities. When we
+move beyond the single entity, we need to identify the relationships
+between entities to accurately represent the real world. Consider the
+case where a person's stocks are listed in different countries. We now
+need to introduce an entity called NATION. We now have two entities,
+STOCK and NATION. Consider the relationship between them. A NATION can
+have many listed stocks. A stock, in this case, is listed in only one
+nation. There is a 1:m (one-to-many) relationship between NATION and
+STOCK.
+
+A 1:m relationship between two entities is depicted by a line connecting
+the two with a crow's foot at the many end of the relationship. The
+following figure shows the 1:m relationship between NATION and STOCK.
+This can be read as: ``a nation can have many stocks, but a stock
+belongs to only one nation.'' The entity NATION is identified by
+\emph{nation code} and has attributes \emph{nation name} and
+\emph{exchange rate}.
+
+\emph{A 1:m relationship between NATION and STOCK}
+
+\includegraphics[width=3.91667in,height=\textheight]{Figures/Chapter 4/nation-stock.png}
+
+The 1:m relationship occurs frequently in business situations. Sometimes
+it occurs in a tree or hierarchical fashion. Consider a very
+hierarchical firm. It has many divisions, but a division belongs to only
+one firm. A division has many departments, but a department belongs to
+only one division. A department has many sections, but a section belongs
+to only one department.
+
+\emph{A series of 1:m relationships}
+
+\includegraphics{Figures/Chapter 4/hierarchy.png}
+
+\hypertarget{why-did-we-create-an-additional-entity}{%
+\subsubsection{Why did we create an additional
+entity?}\label{why-did-we-create-an-additional-entity}}
+
+Another approach to adding data about listing nation and exchange rate
+is to add two attributes to STOCK: \emph{nation name} and \emph{exchange
+rate}. At first glance, this seems a very workable solution; however,
+this will introduce considerable redundancy, as the following table
+illustrates.
+
+\emph{The table stock with additional columns}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1196}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2283}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1087}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0978}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0870}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0761}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1739}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1087}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+*stkcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+stkfirm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkprice
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkqty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkdiv
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkpe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natname
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+exchrate
+\end{minipage} \\
+\midrule()
+\endhead
+FC & Freedonia Copper & 27.5 & 10529 & 1.84 & 16 & United Kingdom & 1 \\
+PT & Patagonian Tea & 55.25 & 12635 & 2.5 & 10 & United Kingdom & 1 \\
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 & United Kingdom & 1 \\
+SLG & Sri Lankan Gold & 50.37 & 32868 & 2.68 & 16 & United Kingdom &
+1 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3 & 12 & United Kingdom &
+1 \\
+BE & Burmese Elephant & 0.07 & 154713 & 0.01 & 3 & United Kingdom & 1 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 & United Kingdom & 1 \\
+NG & Nigerian Geese & 35 & 12323 & 1.68 & 10 & United Kingdom & 1 \\
+CS & Canadian Sugar & 52.78 & 4716 & 2.5 & 15 & United Kingdom & 1 \\
+ROF & Royal Ostrich Farms & 33.75 & 1234923 & 3 & 6 & United Kingdom &
+1 \\
+MG & Minnesota Gold & 53.87 & 816122 & 1 & 25 & USA & 0.67 \\
+GP & Georgia Peach & 2.35 & 387333 & 0.2 & 5 & USA & 0.67 \\
+NE & Narembeen Emu & 12.34 & 45619 & 1 & 8 & Australia & 0.46 \\
+QD & Queensland Diamond & 6.73 & 89251 & 0.5 & 7 & Australia & 0.46 \\
+IR & Indooroopilly Ruby & 15.92 & 56147 & 0.5 & 20 & Australia & 0.46 \\
+BD & Bombay Duck & 25.55 & 167382 & 1 & 12 & India & 0.0228 \\
+\bottomrule()
+\end{longtable}
+
+The exact same nation name and exchange rate pair occurs 10 times for
+stocks listed in the United Kingdom. This redundancy presents problems
+when we want to insert, delete, or update data. These problems,
+generally known as \textbf{update anomalies}, occur with these three
+basic operations.
+
+\hypertarget{insert-anomalies}{%
+\paragraph{Insert anomalies}\label{insert-anomalies}}
+
+We cannot insert a fact about a nation's exchange rate unless we first
+buy a stock that is listed in that nation. Consider the case where we
+want to keep a record of France's exchange rate and we have no French
+stocks. We cannot skirt this problem by putting in a null entry for
+stock details because stkcode, the primary key, would be null, and this
+is not allowed. If we have a separate table for facts about a nation,
+then we can easily add new nations without having to buy stocks. This is
+particularly useful when other parts of the organization, say
+International Trading, also need access to exchange rates for many
+nations.
+
+\hypertarget{delete-anomalies}{%
+\paragraph{Delete anomalies}\label{delete-anomalies}}
+
+If we delete data about a particular stock, we might also lose a fact
+about exchange rates. For example, if we delete details of Bombay Duck,
+we also erase the Indian exchange rate.
+
+\hypertarget{update-anomalies}{%
+\paragraph{Update anomalies}\label{update-anomalies}}
+
+Exchange rates are volatile. Most companies need to update them every
+day. What happens when the Australian exchange rate changes? Every row
+in stock with nation = `Australia' will have to be updated. In a large
+portfolio, many rows will be changed. There is also the danger of
+someone forgetting to update all the instances of the nation and
+exchange rate pair. As a result, there could be two exchange rates for
+the one nation. If exchange rate is stored in a nation table, however,
+only one change is necessary, there is no redundancy, and there is no
+danger of inconsistent exchange rates.
+
+The 1:m relationship is mapped by adding a column to the entity at the
+many end of the relationship. The additional column contains the
+identifier of the one end of the relationship.
+
+Consider the relationship between the entities STOCK and NATION. The
+database has two tables: \texttt{stock} and \texttt{nation.} The table
+stock has an additional column, natcode, which contains the primary key
+of nation. If natcode is not stored in \texttt{stock}, then there is no
+way of knowing the identity of the nation where the \texttt{stock} is
+listed.
+
+\emph{A relational database with tables nation and stock}
+
+\begin{longtable}[]{@{}llr@{}}
+\toprule()
+nation & & \\
+\midrule()
+\endhead
+*natcode & natname & exchrate \\
+AUS & Australia & 0.46 \\
+IND & India & 0.0228 \\
+UK & United Kingdom & 1 \\
+USA & United States & 0.67 \\
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1392}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.2658}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1266}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1392}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1013}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0886}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1392}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+stock
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} \\
+\midrule()
+\endhead
+*stkcode & stkfirm & stkprice & stkqty & stkdiv & stkpe &
+\emph{natcode} \\
+FC & Freedonia Copper & 27.5 & 10,529 & 1.84 & 16 & UK \\
+PT & Patagonian Tea & 55.25 & 12,635 & 2.5 & 10 & UK \\
+AR & Abyssinian Ruby & 31.82 & 22,010 & 1.32 & 13 & UK \\
+SLG & Sri Lankan Gold & 50.37 & 32,868 & 2.68 & 16 & UK \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6,390 & 3 & 12 & UK \\
+BE & Burmese Elephant & 0.07 & 154,713 & 0.01 & 3 & UK \\
+BS & Bolivian Sheep & 12.75 & 231,678 & 1.78 & 11 & UK \\
+NG & Nigerian Geese & 35 & 12,323 & 1.68 & 10 & UK \\
+CS & Canadian Sugar & 52.78 & 4,716 & 2.5 & 15 & UK \\
+ROF & Royal Ostrich Farms & 33.75 & 1,234,923 & 3 & 6 & UK \\
+MG & Minnesota Gold & 53.87 & 816,122 & 1 & 25 & USA \\
+GP & Georgia Peach & 2.35 & 387,333 & 0.2 & 5 & USA \\
+NE & Narembeen Emu & 12.34 & 45,619 & 1 & 8 & AUS \\
+QD & Queensland Diamond & 6.73 & 89,251 & 0.5 & 7 & AUS \\
+IR & Indooroopilly Ruby & 15.92 & 56,147 & 0.5 & 20 & AUS \\
+BD & Bombay Duck & 25.55 & 167,382 & 1 & 12 & IND \\
+\bottomrule()
+\end{longtable}
+
+Notice that \texttt{natcode} appears in both the \texttt{stock} and
+\texttt{nation} tables. In \texttt{nation}, \texttt{natcode} is the
+primary key; it is unique for each instance of \texttt{nation.} In table
+\texttt{stock}, \texttt{natcode} is a \textbf{foreign key} because it is
+the primary key of \texttt{nation}, the one end of the 1:m relationship.
+The column \texttt{natcode} is a foreign key in \texttt{stock} because
+it is a primary key in \texttt{nation}. A matched primary key--foreign
+key pair is the method for recording the 1:m relationship between the
+two tables. This method of representing a relationship is illustrated
+using shading and arrows for the two USA stocks. In the \texttt{stock}
+table, \texttt{natcode} is italicized to indicate that it is a foreign
+key. This method, like asterisking a primary key, is a useful reminder.
+
+Although the same name has been used for the primary key and the foreign
+key in this example, it is not mandatory. The two columns can have
+different names, and in some cases you are forced to use different
+names. When possible, we find it convenient to use identical column
+names to help us remember that the tables are related. To distinguish
+between columns with identical names, they must by \textbf{qualified} by
+prefixing the table name. In this case, use \texttt{nation.natcode} and
+\texttt{stock.natcode.} Thus, \texttt{nation.natcode} refers to the
+\texttt{natcode} column in the table \texttt{nation.}
+
+Although a nation can have many stocks, it is not mandatory to have any.
+That is, in data modeling terminology, many can be zero, one, or more,
+but it is mandatory to have a value for \texttt{natcode} in
+\texttt{nation} for every value of \texttt{natcode} in \texttt{stock}.
+This requirement, known as the \textbf{referential integrity
+constraint}, helps maintain the accuracy of a database. Its application
+means that every foreign key in a table has an identical primary key in
+that same table or another table. In this example, it means that for
+every value of \texttt{natcode} in \texttt{stock}, there is a
+corresponding entry in \texttt{nation}. As a result, a primary key row
+must be created before its corresponding foreign key row. In other
+words, details for a \texttt{nation} must be added before any data about
+its listed stocks are entered.
+
+Every foreign key must have a matching primary key (referential
+integrity rule), and every primary key must be non-null (entity
+integrity rule). A foreign key cannot be null when a relationship is
+mandatory, as in the case where a stock must belong to a nation. If a
+relationship is optional (a person can have a boss), then a foreign key
+can be null (i.e., a person is the head of the organization, and thus
+has no boss). The ideas of mandatory and optional will be discussed
+later in this book.
+
+Why is the foreign key in the table at the ``many'' end of the
+relationship? Because each instance of \texttt{stock} is associated with
+exactly one instance of \texttt{nation}. The rule is that a
+\texttt{stock} must be listed in one, and only one, nation. Thus, the
+foreign key field is single-valued when it is at the ``many'' end of a
+relationship. The foreign key is not at the ``one'' end of the
+relationship because each instance of nation can be associated with more
+than one instance of \texttt{stock}, and this implies a multivalued
+foreign key. The relational model does not support multivalued fields.
+
+\hypertarget{mysql-workbench}{%
+\subsubsection{MySQL Workbench}\label{mysql-workbench}}
+
+In Workbench, a 1:m relationship is represented in a similar manner to
+the method you have just learned. Also, note that the foreign key is
+shown in the entity at the many end with a red diamond. We omit the
+foreign key when data modeling because it can be inferred.
+
+\emph{Specifying a 1:m relationship in MySQL Workbench}
+
+\includegraphics{Figures/Chapter 4/wb-stock-nation.png}
+
+\hypertarget{querying-a-two-table-database}{%
+\subsection{Querying a two-table
+database}\label{querying-a-two-table-database}}
+
+A two-table database offers the opportunity to learn more SQL and
+another relational algebra operation: join.
+
+\hypertarget{join}{%
+\subsubsection{Join}\label{join}}
+
+Join creates a new table from two existing tables by matching on a
+column common to both tables. Usually, the common column is a primary
+key--foreign key pair: The primary key of one table is matched with the
+foreign key of another table. Join is frequently used to get the data
+for a query into a single row. Consider the tables \texttt{nation} and
+\texttt{stock}. If we want to calculate the value---in British
+pounds---of a stock, we multiply stock price by stock quantity and then
+exchange rate. To find the appropriate exchange rate for a stock, get
+its \texttt{natcode} from stock and then find the exchange rate in the
+matching row in \texttt{nation}, the one with the same value for
+\texttt{natcode}. For example, to calculate the value of Georgia Peach,
+which has \texttt{natcode} = `US', find the row in \texttt{nation} that
+also has \texttt{natcode} = `US'. In this case, the stock's value is
+2.35 * 387333 / 0.67 = £609,855.81.
+
+Calculation of stock value is very easy once a join is used to get the
+three values in one row. The SQL command for joining the two tables is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+    \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1979}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0938}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0729}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0729}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0625}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0833}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1562}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.0938}}@{}}
+\caption{Displaying records 1 - 10}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+stkcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+stkfirm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkprice
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkqty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkdiv
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkpe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natname
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+exchrate
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+stkcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+stkfirm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkprice
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkqty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkdiv
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkpe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natcode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+natname
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+exchrate
+\end{minipage} \\
+\midrule()
+\endhead
+IR & Indooroopilly Ruby & 15.92 & 56147 & 0.50 & 20 & AUS & AUS &
+Australia & 0.4600 \\
+NE & Narembeen Emu & 12.34 & 45619 & 1.00 & 8 & AUS & AUS & Australia &
+0.4600 \\
+QD & Queensland Diamond & 6.73 & 89251 & 0.50 & 7 & AUS & AUS &
+Australia & 0.4600 \\
+BD & Bombay Duck & 25.55 & 167382 & 1.00 & 12 & IND & IND & India &
+0.0228 \\
+AR & Abyssinian Ruby & 31.82 & 22010 & 1.32 & 13 & UK & UK & United
+Kingdom & 1.0000 \\
+BE & Burmese Elephant & 0.07 & 154713 & 0.01 & 3 & UK & UK & United
+Kingdom & 1.0000 \\
+BS & Bolivian Sheep & 12.75 & 231678 & 1.78 & 11 & UK & UK & United
+Kingdom & 1.0000 \\
+CS & Canadian Sugar & 52.78 & 4716 & 2.50 & 15 & UK & UK & United
+Kingdom & 1.0000 \\
+FC & Freedonia Copper & 27.50 & 10529 & 1.84 & 16 & UK & UK & United
+Kingdom & 1.0000 \\
+ILZ & Indian Lead \& Zinc & 37.75 & 6390 & 3.00 & 12 & UK & UK & United
+Kingdom & 1.0000 \\
+\bottomrule()
+\end{longtable}
+
+\emph{The join of stock and nation}
+
+The columns \texttt{stkprice} and \texttt{stkdiv} record values in the
+country's currency. Thus, the price of Bombay Duck is 25.55 Indian
+rupees. To find the value in U.K. pounds (GPB), multiply the price by
+0.0228, because one rupee is worth 0.0228 GPB. The value of one share of
+Bombay Duck in U.S. dollars (USD) is 25.55 * 0.0228 / 0.67 because one
+USD is worth 0.67 GBP.
+
+There are several things to notice about the SQL command and the result:
+
+\begin{itemize}
+\item
+  To avoid confusion because \texttt{natcode} is a column name in both
+  stock and nation, it needs to be qualified. If \texttt{natcode} is not
+  qualified, the system will reject the query because it cannot
+  distinguish between the two columns titled \texttt{natcode}.
+\item
+  The new table has the \texttt{natcode} column replicated. Both are
+  called \texttt{natcode}. The naming convention for the replicated
+  column varies with the RDBMS. The columns, for example, should be
+  labeled \texttt{stock.natcode} and \texttt{nation.natcode}.
+\item
+  The SQL command specifies the names of the tables to be joined, the
+  columns to be used for matching, and the condition for the match
+  (equality in this case).
+\item
+  The number of columns in the new table is the sum of the columns in
+  the two tables.
+\item
+  The stock value calculation is now easily specified in an SQL command
+  because all the data are in one row.
+\end{itemize}
+
+Remember that during data modeling we created two entities, STOCK and
+NATION, and defined the relationship between them. We showed that if the
+data were stored in one table, there could be updating problems. Now,
+with a join, we have combined these data. So why separate the data only
+to put them back together later? There are two reasons. First, we want
+to avoid update anomalies. Second, as you will discover, we do not join
+the same tables every time.
+
+A join can be combined with other SQL commands.
+
+\emph{Report the value of each stockholding in UK pounds. Sort the
+report by nation and firm.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, stkfirm, stkprice, stkqty, exchrate,}
+\NormalTok{    stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate }\KeywordTok{as}\NormalTok{ stkvalue}
+        \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+            \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+                \KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ natname, stkfirm;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2714}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1286}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1286}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1571}}@{}}
+\caption{Displaying records 1 - 10}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+natname
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+stkfirm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkprice
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkqty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+exchrate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkvalue
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+natname
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+stkfirm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkprice
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkqty
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+exchrate
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+stkvalue
+\end{minipage} \\
+\midrule()
+\endhead
+Australia & Indooroopilly Ruby & 15.92 & 56147 & 0.4600 & 411175.71 \\
+Australia & Narembeen Emu & 12.34 & 45619 & 0.4600 & 258951.69 \\
+Australia & Queensland Diamond & 6.73 & 89251 & 0.4600 & 276303.25 \\
+India & Bombay Duck & 25.55 & 167382 & 0.0228 & 97506.71 \\
+United Kingdom & Abyssinian Ruby & 31.82 & 22010 & 1.0000 & 700358.20 \\
+United Kingdom & Bolivian Sheep & 12.75 & 231678 & 1.0000 &
+2953894.50 \\
+United Kingdom & Burmese Elephant & 0.07 & 154713 & 1.0000 & 10829.91 \\
+United Kingdom & Canadian Sugar & 52.78 & 4716 & 1.0000 & 248910.48 \\
+United Kingdom & Freedonia Copper & 27.50 & 10529 & 1.0000 &
+289547.50 \\
+United Kingdom & Indian Lead \& Zinc & 37.75 & 6390 & 1.0000 &
+241222.50 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{group-byreporting-by-groups}{%
+\subsubsection{GROUP BY---reporting by
+groups}\label{group-byreporting-by-groups}}
+
+The GROUP BY clause is an elementary form of control break reporting. It
+permits grouping of rows that have the same value for a specified column
+or columns, and it produces one row for each different value of the
+grouping column(s).
+
+\emph{Report by nation the total value of stockholdings.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, }\FunctionTok{sum}\NormalTok{(stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate) }\KeywordTok{as}\NormalTok{ stkvalue}
+    \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+        \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ natname;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{4 records}\tabularnewline
+\toprule()
+natname & stkvalue \\
+\midrule()
+\endfirsthead
+\toprule()
+natname & stkvalue \\
+\midrule()
+\endhead
+Australia & 946430.65 \\
+India & 97506.71 \\
+United Kingdom & 48908364.25 \\
+United States & 30066065.54 \\
+\bottomrule()
+\end{longtable}
+
+SQL's built-in functions (COUNT, SUM, AVERAGE, MIN, and MAX) can be used
+with the GROUP BY clause. They are applied to a group of rows having the
+same value for a specified column. You can specify more than one
+function in a SELECT statement. For example, we can compute total value
+and number of different stocks and group by nation using:
+
+\emph{Report the number of stocks and their total value by nation.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, }\FunctionTok{COUNT}\NormalTok{(}\OperatorTok{*}\NormalTok{), }\FunctionTok{SUM}\NormalTok{(stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate) }\KeywordTok{AS}\NormalTok{ stkvalue}
+    \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+        \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ natname;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrr@{}}
+\caption{4 records}\tabularnewline
+\toprule()
+natname & COUNT(*) & stkvalue \\
+\midrule()
+\endfirsthead
+\toprule()
+natname & COUNT(*) & stkvalue \\
+\midrule()
+\endhead
+Australia & 3 & 946430.65 \\
+India & 1 & 97506.71 \\
+United Kingdom & 10 & 48908364.25 \\
+United States & 2 & 30066065.54 \\
+\bottomrule()
+\end{longtable}
+
+You can group by more than one column name; however, all column names
+appearing in the SELECT clause must be associated with a built-in
+function or be in a GROUP BY clause.
+
+\emph{List stocks by nation, and for each nation show the number of
+stocks for each PE ratio and the total value of those stock holdings in
+UK pounds.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname,stkpe,}\FunctionTok{COUNT}\NormalTok{(}\OperatorTok{*}\NormalTok{),}
+    \FunctionTok{SUM}\NormalTok{(stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate) }\KeywordTok{AS}\NormalTok{ stkvalue}
+        \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+            \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ natname, stkpe;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{Displaying records 1 - 14}\tabularnewline
+\toprule()
+natname & stkpe & COUNT(*) & stkvalue \\
+\midrule()
+\endfirsthead
+\toprule()
+natname & stkpe & COUNT(*) & stkvalue \\
+\midrule()
+\endhead
+Australia & 20 & 1 & 411175.71 \\
+Australia & 8 & 1 & 258951.69 \\
+Australia & 7 & 1 & 276303.25 \\
+India & 12 & 1 & 97506.71 \\
+United Kingdom & 13 & 1 & 700358.20 \\
+United Kingdom & 3 & 1 & 10829.91 \\
+United Kingdom & 11 & 1 & 2953894.50 \\
+United Kingdom & 15 & 1 & 248910.48 \\
+United Kingdom & 16 & 2 & 1945108.66 \\
+United Kingdom & 12 & 1 & 241222.50 \\
+United Kingdom & 10 & 2 & 1129388.75 \\
+United Kingdom & 6 & 1 & 41678651.25 \\
+United States & 5 & 1 & 609855.81 \\
+United States & 25 & 1 & 29456209.73 \\
+\bottomrule()
+\end{longtable}
+
+In this example, stocks are grouped by both \texttt{natname} and
+\texttt{stkpe}. In most cases, there is only one stock for each pair of
+\texttt{natname} and \texttt{stkpe}; however, there are two situations
+(U.K. stocks with PEs of 10 and 16) where details of multiple stocks are
+grouped into one report line. Examining the values in the COUNT column
+helps you to identify these stocks.
+
+\hypertarget{havingthe-where-clause-of-groups}{%
+\subsubsection{HAVING---the WHERE clause of
+groups}\label{havingthe-where-clause-of-groups}}
+
+The HAVING clause in a GROUP BY is like the WHERE clause in a SELECT. It
+restricts the number of groups reported, whereas WHERE restricts the
+number of rows reported. Used with built-in functions, HAVING is always
+preceded by GROUP BY and is always followed by a function (SUM, AVG,
+MAX, MIN, or COUNT).
+
+\emph{Report the total value of stocks for nations with two or more
+listed stocks.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, }\FunctionTok{SUM}\NormalTok{(stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate) }\KeywordTok{AS}\NormalTok{ stkvalue}
+    \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+        \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ natname}
+            \KeywordTok{HAVING} \FunctionTok{COUNT}\NormalTok{(}\OperatorTok{*}\NormalTok{) }\OperatorTok{\textgreater{}=} \DecValTok{2}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{3 records}\tabularnewline
+\toprule()
+natname & stkvalue \\
+\midrule()
+\endfirsthead
+\toprule()
+natname & stkvalue \\
+\midrule()
+\endhead
+Australia & 946430.6 \\
+United Kingdom & 48908364.2 \\
+United States & 30066065.5 \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+Report by nation the total value of dividends.
+\end{quote}
+
+\hypertarget{regular-expressionpattern-matching-1}{%
+\subsection{Regular expression---pattern
+matching}\label{regular-expressionpattern-matching-1}}
+
+Regular expression was introduced in the previous chapter, and we will
+now continue to learn some more of its features.
+
+\hypertarget{search-for-a-string-not-containing-specified-characters}{%
+\subsubsection{Search for a string not containing specified
+characters}\label{search-for-a-string-not-containing-specified-characters}}
+
+The \^{} (carat) is the symbol for NOT. It is used when we want to find
+a string not containing a character in one or more specified strings.
+For example, {[}\^{}a-f{]} means any character not in the set containing
+a, b, c, d, e, or f.
+
+\emph{List the names of nations with non-alphabetic characters in their
+names}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname }\KeywordTok{FROM}\NormalTok{ nation }\KeywordTok{WHERE}\NormalTok{ natname REGEXP }\StringTok{\textquotesingle{}[\^{}a{-}z|A{-}Z]\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+natname \\
+\midrule()
+\endfirsthead
+\toprule()
+natname \\
+\midrule()
+\endhead
+United Kingdom \\
+United States \\
+\bottomrule()
+\end{longtable}
+
+Notice that the nations reported have a space in their name, which is a
+character not in the range a-z and not in A-Z.
+
+\hypertarget{search-for-string-containing-a-repeated-pattern-or-repetition}{%
+\subsubsection{Search for string containing a repeated pattern or
+repetition}\label{search-for-string-containing-a-repeated-pattern-or-repetition}}
+
+A pair of curly brackets is used to denote the repetition factor for a
+pattern. For example, \{n\} means repeat a specified pattern n times.
+
+\emph{List the names of firms with a double `e'.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{WHERE}\NormalTok{ stkfirm REGEXP }\StringTok{\textquotesingle{}[e]\{2\}\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{5 records}\tabularnewline
+\toprule()
+stkfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+stkfirm \\
+\midrule()
+\endhead
+Bolivian Sheep \\
+Freedonia Copper \\
+Narembeen Emu \\
+Nigerian Geese \\
+Queensland Diamond \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-combining-alternation-and-repetition}{%
+\subsubsection{Search combining alternation and
+repetition}\label{search-combining-alternation-and-repetition}}
+
+Regular expressions becomes very powerful when you combine several of
+the basic capabilities into a single search expression.
+
+\emph{List the names of firms with a double `s' or a double `n'.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{WHERE}\NormalTok{ stkfirm REGEXP }\StringTok{\textquotesingle{}[s]\{2\}|[n]\{2\}\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+stkfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+stkfirm \\
+\midrule()
+\endhead
+Abyssinian Ruby \\
+Minnesota Gold \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-for-multiple-versions-of-a-string}{%
+\subsubsection{Search for multiple versions of a
+string}\label{search-for-multiple-versions-of-a-string}}
+
+If you are interested in find a string containing several specified
+string, you can use the square brackets to indicate the sought strings.
+For example, {[}ea{]} means any character from the set containing e and
+a.
+
+\emph{List the names of firms with names that include `inia' or `onia'.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{WHERE}\NormalTok{ stkfirm REGEXP }\StringTok{\textquotesingle{}[io]nia\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{3 records}\tabularnewline
+\toprule()
+stkfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+stkfirm \\
+\midrule()
+\endhead
+Abyssinian Ruby \\
+Freedonia Copper \\
+Patagonian Tea \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{search-for-a-string-in-a-particular-position}{%
+\subsubsection{Search for a string in a particular
+position}\label{search-for-a-string-in-a-particular-position}}
+
+Sometimes you might be interested in identifying a string with a
+character in a particular position.
+
+\emph{Find firms with `t' as the third letter of their name.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{WHERE}\NormalTok{ stkfirm REGEXP }\StringTok{\textquotesingle{}\^{}(.)\{2\}t\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{1 records}\tabularnewline
+\toprule()
+stkfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+stkfirm \\
+\midrule()
+\endhead
+Patagonian Tea \\
+\bottomrule()
+\end{longtable}
+
+The regular expression has three elements:
+
+\begin{itemize}
+\item
+  \^{} indicates start searching at the beginning of the string;
+\item
+  (.)\{2\} specifies that anything is acceptable for the next two
+  characters;
+\item
+  t indicates what the next character, the third, must be.
+\end{itemize}
+
+\hypertarget{search-for-a-string-not-containing-any-specified-characters}{%
+\subsubsection{Search for a string not containing any specified
+characters}\label{search-for-a-string-not-containing-any-specified-characters}}
+
+There might be a need to find rows not containing specified characters
+anywhere in a givev coumn. You need to check every character in the
+string to ensure there are matches.
+
+\emph{List the names of nations without s or S \textbf{anywhere} in
+their names}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ nation }\KeywordTok{WHERE}\NormalTok{ natname REGEXP }\StringTok{\textquotesingle{}\^{}[\^{}s|S]*$\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llr@{}}
+\caption{2 records}\tabularnewline
+\toprule()
+natcode & natname & exchrate \\
+\midrule()
+\endfirsthead
+\toprule()
+natcode & natname & exchrate \\
+\midrule()
+\endhead
+IND & India & 0.0228 \\
+UK & United Kingdom & 1.0000 \\
+\bottomrule()
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  \^{} start searching at the beginning of the string;
+\item
+  \$ end searching at the end of the string;
+\item
+  * any character in a string;
+\item
+  \^{}s\textbar S no lower or upper case s.
+\end{itemize}
+
+You have seen a few of the features of a very powerful tool. To learn
+more about regular expressions, see
+\href{http://regexlib.com}{regexlib.com}, which contains a library of
+regular expressions and a feature for finding expressions to solve
+specific problems. Check out the regular expression for checking whether
+a character string is a valid email address.
+
+\hypertarget{subqueries-1}{%
+\subsection{Subqueries}\label{subqueries-1}}
+
+A subquery, or nested SELECT, is a SELECT nested within another SELECT.
+A subquery can be used to return a list of values subsequently searched
+with an IN clause.
+
+\emph{Report the names of all Australian stocks.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock}
+    \KeywordTok{WHERE}\NormalTok{ natcode }\KeywordTok{IN}
+\NormalTok{        (}\KeywordTok{SELECT}\NormalTok{ natcode }\KeywordTok{FROM}\NormalTok{ nation}
+            \KeywordTok{WHERE}\NormalTok{ natname }\OperatorTok{=} \StringTok{\textquotesingle{}Australia\textquotesingle{}}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{3 records}\tabularnewline
+\toprule()
+stkfirm \\
+\midrule()
+\endfirsthead
+\toprule()
+stkfirm \\
+\midrule()
+\endhead
+Indooroopilly Ruby \\
+Narembeen Emu \\
+Queensland Diamond \\
+\bottomrule()
+\end{longtable}
+
+Conceptually, the subquery is evaluated first. It returns a list of
+values for natcode (`AUS') so that the query then is the same as:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock}
+    \KeywordTok{WHERE}\NormalTok{ natcode }\KeywordTok{IN}\NormalTok{ (}\StringTok{\textquotesingle{}AUS\textquotesingle{}}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+When discussing subqueries, sometimes a subquery is also called an
+\textbf{inner query}. The term \textbf{outer query} is applied to the
+SQL preceding the inner query. In this case, the outer and inner queries
+are:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2105}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7895}}@{}}
+\toprule()
+\endhead
+Outer query & SELECT stkfirm FROM stock WHERE natcode IN \\
+Inner query & (SELECT natcode FROM nation WHERE natname =
+`Australia'); \\
+\bottomrule()
+\end{longtable}
+
+Note that in this case we do not have to qualify \texttt{natcode}. There
+is no identity crisis, because \texttt{natcode} in the inner query is
+implicitly qualified as \texttt{nation.natcode} and \texttt{natcode} in
+the outer query is understood to be \texttt{stock.natcode}.
+
+This query also can be run as a join by writing:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+    \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+    \KeywordTok{AND}\NormalTok{ natname }\OperatorTok{=} \StringTok{\textquotesingle{}Australia\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{correlated-subquery}{%
+\subsubsection{Correlated subquery}\label{correlated-subquery}}
+
+In a correlated subquery, the subquery cannot be evaluated independently
+of the outer query. It depends on the outer query for the values it
+needs to resolve the inner query. The subquery is evaluated for each
+value passed to it by the outer query. An example illustrates when you
+might use a correlated subquery and how it operates.
+
+\emph{Find those stocks where the quantity is greater than the average
+for that country.}
+
+An approach to this query is to examine the rows of stock one a time,
+and each time compare the quantity of stock to the average for that
+country. This means that for each row, the subquery must receive the
+outer query's country code so it can compute the average for that
+country.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, stkfirm, stkqty }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+    \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+    \KeywordTok{WHERE}\NormalTok{ stkqty }\OperatorTok{\textgreater{}}
+\NormalTok{        (}\KeywordTok{SELECT} \FunctionTok{avg}\NormalTok{(stkqty) }\KeywordTok{FROM}\NormalTok{ stock}
+            \KeywordTok{WHERE}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}llr@{}}
+\caption{4 records}\tabularnewline
+\toprule()
+natname & stkfirm & stkqty \\
+\midrule()
+\endfirsthead
+\toprule()
+natname & stkfirm & stkqty \\
+\midrule()
+\endhead
+Australia & Queensland Diamond & 89251 \\
+United Kingdom & Bolivian Sheep & 231678 \\
+United Kingdom & Royal Ostrich Farms & 1234923 \\
+United States & Minnesota Gold & 816122 \\
+\bottomrule()
+\end{longtable}
+
+Conceptually, think of this query as stepping through the join of
+\texttt{stock} and \texttt{nation} one row at a time and executing the
+subquery each time. The first row has \texttt{natcode} = `AUS' so the
+subquery becomes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{AVG}\NormalTok{(stkqty) }\KeywordTok{FROM}\NormalTok{ stock}
+    \KeywordTok{WHERE}\NormalTok{ stock.natcode }\OperatorTok{=} \StringTok{\textquotesingle{}AUS\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Since the average stock quantity for Australian stocks is 63,672.33, the
+first row in the join, Narembeen Emu, is not reported. Neither is the
+second row reported, but the third is.
+
+The term \textbf{correlated subquery} is used because the inner query's
+execution depends on receiving a value for a variable
+(\texttt{nation.natcode} in this instance) from the outer query. Thus,
+the inner query of the correlated subquery cannot be evaluated once and
+for all. It must be evaluated repeatedly---once for each value of the
+variable received from the outer query. In this respect, a correlated
+subquery is different from a subquery, where the inner query needs to be
+evaluated only once. The requirement to compare each row of a table
+against a function (e.g., average or count) for some rows of a column is
+usually a clue that you need to write a correlated subquery.
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+Why are no Indian stocks reported in the correlated subquery example?
+How would you change the query to report an Indian stock? Report only
+the three stocks with the largest quantities (i.e., do the query without
+using ORDER BY).
+\end{quote}
+
+\hypertarget{summary-1}{%
+\subsection*{Summary}\label{summary-1}}
+\addcontentsline{toc}{subsection}{Summary}
+
+Entities are related to other entities by relationships. The 1:m
+(one-to-many) relationship occurs frequently in data models. An
+additional entity is required to represent a 1:m relationship to avoid
+update anomalies. In a relational database, a 1:m relationship is
+represented by an additional column, the foreign key, in the table at
+the many end of the relationship. The referential integrity constraint
+insists that a foreign key must always exist as a primary key in a
+table. A foreign key constraint is specified in a CREATE statement.
+
+Join creates a new table from two existing tables by matching on a
+column common to both tables. Often the common column is a primary
+key--foreign key combination. The GROUP BY clause is used to create an
+elementary control break report. The HAVING clause of GROUP BY is like
+the WHERE clause of SELECT. A subquery, which has a SELECT statement
+within another SELECT statement, causes two SELECT statements to be
+executed---one for the inner query and one for the outer query.
+
+\hypertarget{key-terms-and-concepts-1}{%
+\subsection*{Key terms and concepts}\label{key-terms-and-concepts-1}}
+\addcontentsline{toc}{subsection}{Key terms and concepts}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+\endhead
+Constraint & JOIN \\
+Control break reporting & One-to-many (1:m) relationship \\
+Correlated subquery & Referential integrity \\
+Delete anomalies & Relationship \\
+Foreign key & Update anomalies \\
+GROUP BY & HAVING \\
+Insert anomalies & \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{exercises-1}{%
+\subsection*{Exercises}\label{exercises-1}}
+\addcontentsline{toc}{subsection}{Exercises}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Report all values in British pounds:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Report the value of stocks listed in Australia.
+  \item
+    Report the dividend payment of all stocks.
+  \item
+    Report the total dividend payment by nation.
+  \item
+    Create a view containing nation, firm, price, quantity, exchange
+    rate, value, and yield.
+  \item
+    Report the average yield by nation.
+  \item
+    Report the minimum and maximum yield for each nation.
+  \item
+    Report the nations where the average yield of stocks exceeds the
+    average yield of all stocks.
+  \end{enumerate}
+\item
+  How would you change the queries in exercise 4-2 if you were required
+  to report the values in American dollars, Australian dollars, or
+  Indian rupees?
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  Find stocks where the third or fourth letter in their name is an `m'.
+\end{enumerate}
+
+\hypertarget{the-many-to-many-relationship}{%
+\section{The Many-to-Many
+Relationship}\label{the-many-to-many-relationship}}
+
+\begin{quote}
+\emph{Fearful concatenation of circumstances.}
+
+Daniel Webster
+\end{quote}
+
+\hypertarget{learning-objectives-2}{%
+\subsubsection*{Learning objectives}\label{learning-objectives-2}}
+\addcontentsline{toc}{subsubsection}{Learning objectives}
+
+Students completing this chapter will be able to
+
+\begin{itemize}
+\tightlist
+\item
+  model a many-to-many relationship between two entities;
+\item
+  define a database with a many-to-many relationship;
+\item
+  write queries for a database with a many-to-many relationship.
+\end{itemize}
+
+\hypertarget{the-many-to-many-relationship-1}{%
+\subsection{The many-to-many
+relationship}\label{the-many-to-many-relationship-1}}
+
+Consider the case when items are sold. We can immediately identify two
+entities: SALE and ITEM. A sale can contain many items, and an item can
+appear in many sales. We are not saying the same item can be sold many
+times, but the particular type of item (e.g., a compass) can be sold
+many times; thus we have a many-to-many (m:m) relationship between SALE
+and ITEM. When we have an m:m relationship, we create a third entity to
+link the entities through two 1:m relationships. Usually, it is fairly
+easy to name this third entity. In this case, this third entity,
+typically known as an \textbf{associative entity}, is called LINE ITEM.
+A typical old style sales form lists the items purchased by a customer.
+Each of the lines appearing on the order form is generally known in
+retailing as a line item, which links an item and a sale.
+
+\emph{A sales form} \includegraphics{Figures/Chapter 5/sales form.png}
+
+The representation of this m:m relationship is shown. We say
+many-to-many because there are two relationships---an ITEM is related to
+many SALEs, and a SALE is related to many ITEMs. This data model can
+also be read as: ``a sale has many line items, but a line item refers to
+only one sale. Similarly, an item can appear as many line items, but a
+line item references only one item.''
+
+\emph{An m:m relationship between SALE and ITEM}
+
+\includegraphics[width=5.89583in,height=\textheight]{Figures/Chapter 5/sale-item.png}
+
+The entity SALE is identified by \emph{saleno} and has the attributes
+\emph{saledate} and \emph{saletext} (a brief comment on the
+customer---soft information). LINEITEM is partially identified by
+\emph{lineno} and has attributes \emph{lineqty} (the number of units
+sold) and \emph{lineprice} (the unit selling price for this sale). ITEM
+is identified by \emph{itemno} and has attributes \emph{itemname},
+\emph{itemtype} (e.g., clothing, equipment, navigation aids, furniture,
+and so on), and \emph{itemcolor}.
+
+If you look carefully at the m:m relationship figure, you will notice
+that there is a plus sign (+) above the crow's foot at the ``many'' end
+of the 1:m relationship between SALE and LINEITEM. This plus sign
+provides information about the identifier of LINEITEM. As you know,
+every entity must have a unique identifier. A sales order is a series of
+rows or lines, and \emph{lineno} is unique only within a particular
+order. If we just use \emph{lineno} as the identifier, we cannot
+guarantee that every instance of LINEITEM is unique. If we use
+\emph{saleno} and \emph{lineno} together, however, we have a unique
+identifier for every instance of LINEITEM. Identifier \emph{saleno} is
+unique for every sale, and \emph{lineno} is unique within any sale. The
+plus indicates that LINEITEM's unique identifier is the concatenation of
+\emph{saleno} and \emph{lineno}. The order of concatenation does not
+matter.
+
+LINEITEM is termed a \textbf{weak entity} because it relies on another
+entity for its existence and identification.
+
+\hypertarget{mysql-workbench-1}{%
+\subsubsection{MySQL Workbench}\label{mysql-workbench-1}}
+
+\emph{An m:m relationship with Workbench}
+
+\includegraphics{Figures/Chapter 5/m-m-wb.png}
+
+Workbench distinguishes between two types of relationships. An
+\textbf{identifying relationship}, shown by a solid line, is used when
+the entity at the many end of the relationship is a weak entity and
+needs the identifier of the one end of the relationship to uniquely
+identify an instance of the relationship, as in LINEITEM. An identifying
+relationship corresponds to the + sign associated with a crow's foot.
+The other type of relationship, shown by a dashed line, is known as a
+\emph{non-identifying} relationship. The mapping between the type of
+relationship and the representation (i.e., dashed or solid line) is
+arbitrary and thus not always easily recalled. We think that using a +
+on the crow's foot is a better way of denoting weak entities.
+
+When the relationship between SALE and ITEM is drawn in Workbench, as
+shown in the following figure, there are two things to notice.
+\emph{First}, the table, lineitem, maps the associative entity generated
+for the m:m relationship. \emph{Second}, lineitem has an identifying
+relationship with sale and a non-identifying relationship with item.
+
+\emph{An m:m relationship between SALE and ITEM in MySQL Workbench}
+
+\includegraphics{Figures/Chapter 5/sale-item-wb.png}
+
+\hypertarget{why-did-we-create-a-third-entity}{%
+\subsubsection{Why did we create a third
+entity?}\label{why-did-we-create-a-third-entity}}
+
+When we have an m:m relationship, we create an associative entity to
+store data about the relationship. In this case, we have to store data
+about the items sold. We cannot store the data with SALE because a sale
+can have many items, and an instance of an entity stores only
+single-value facts. Similarly, we cannot store data with ITEM because an
+item can appear in many sales. Since we cannot store data in SALE or
+ITEM, we must create another entity to store data about the m:m
+relationship.
+
+You might find it useful to think of the m:m relationship as two 1:m
+relationships. An item can appear on many line item listings, and a line
+item entry refers to only one item. A sale has many line items, and each
+line item entry refers to only one sale.
+
+\begin{quote}
+\textbf{\emph{Social Security number is notunique!}}
+
+Two girls named Sarah Lee Ferguson were born on May 3, 1959. The U.S.
+government considered them one and the same and issued both the same
+Social Security number (SSN), a nine-digit identifier of U.S. residents.
+Now Sarah Lee Ferguson Boles and Sarah Lee Ferguson Johnson share the
+same SSN.\footnote{``Two women share a name, birthday, and S.S.
+  number!'' Athens Daily News, January 29 1990, 7A. Also, see
+  \url{https://www.computerworld.com/article/3004659/a-tale-of-two-women-same-birthday-same-social-security-number-same-big-data-mess.html}}
+
+Mrs.~Boles became aware of her SSN twin in 1987 when the Internal
+Revenue Service claimed there was a discrepancy in her reported income
+Because SSN is used as an identifier in IRS systems. Mrs.~Boles
+encountered other incidents of mistaken identity. Some of Mrs.~Johnson's
+purchases appeared on Mrs.~Boles' credit reports.
+
+In late 1989, the Social Security Administration notified Mrs.~Boles
+that her original number was given to her in error and she had to
+provide evidence of her age, identity, and citizenship to get a new
+number. When Mrs.~Boles got her new SSN, it is likely she had to also
+get a new driver's license and establish a new credit history.
+\end{quote}
+
+\hypertarget{querying-an-mm-relationship}{%
+\subsection{Querying an m:m
+relationship}\label{querying-an-mm-relationship}}
+
+\hypertarget{a-three-table-join}{%
+\subsubsection{A three-table join}\label{a-three-table-join}}
+
+The join operation can be easily extended from two tables to three or
+more merely by specifying the tables to be joined and the matching
+conditions. For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ sale }\KeywordTok{JOIN}\NormalTok{ lineitem}
+    \KeywordTok{ON}\NormalTok{ sale.saleno }\OperatorTok{=}\NormalTok{ lineitem.saleno}
+    \KeywordTok{JOIN}\NormalTok{ item}
+    \KeywordTok{ON}\NormalTok{ item.itemno }\OperatorTok{=}\NormalTok{ lineitem.itemno;}
+\end{Highlighting}
+\end{Shaded}
+
+There are two matching conditions: one for \texttt{sale} and
+\texttt{lineitem} (\texttt{sale.saleno} = \texttt{lineitem.saleno}) and
+one for the item and \texttt{lineitem} tables (\texttt{item.itemno} =
+\texttt{lineitem.itemno}). The table \texttt{lineitem} is the link
+between \texttt{sale} and \texttt{item} and must be referenced in both
+matching conditions.
+
+You can tailor the join to be more precise and report some columns
+rather than all.
+
+\emph{List the name, quantity, price, and value of items sold on January
+16, 2011.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname, lineqty, lineprice, lineqty}\OperatorTok{*}\NormalTok{lineprice }\KeywordTok{AS}\NormalTok{ total}
+    \KeywordTok{FROM}\NormalTok{ sale, lineitem, item}
+        \KeywordTok{WHERE}\NormalTok{ lineitem.saleno }\OperatorTok{=}\NormalTok{ sale.saleno}
+        \KeywordTok{AND}\NormalTok{ item.itemno }\OperatorTok{=}\NormalTok{ lineitem.itemno}
+        \KeywordTok{AND}\NormalTok{ saledate }\OperatorTok{=} \StringTok{\textquotesingle{}2011{-}01{-}16\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lrrr@{}}
+\caption{5 records}\tabularnewline
+\toprule()
+itemname & lineqty & lineprice & total \\
+\midrule()
+\endfirsthead
+\toprule()
+itemname & lineqty & lineprice & total \\
+\midrule()
+\endhead
+Safari chair & 50 & 36.0 & 1800 \\
+Hammock & 50 & 40.5 & 2025 \\
+Tent - 8 person & 8 & 153.0 & 1224 \\
+Tent - 2 person & 1 & 60.0 & 60 \\
+Pocket knife - Avon & 1 & 0.0 & 0 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{existsdoes-a-value-exist}{%
+\subsubsection{EXISTS---does a value
+exist}\label{existsdoes-a-value-exist}}
+
+EXISTS is used in a WHERE clause to test whether a table contains at
+least one row satisfying a specified condition. It returns the value
+\textbf{true} if and only if some row satisfies the condition; otherwise
+it returns \textbf{false}. EXISTS represents the \textbf{existential
+quantifier} of formal logic. The best way to get a feel for EXISTS is to
+examine a query.
+
+\emph{Report all clothing items (type ``C'') for which a sale is
+recorded.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname, itemcolor }\KeywordTok{FROM}\NormalTok{ item}
+    \KeywordTok{WHERE}\NormalTok{ itemtype }\OperatorTok{=} \StringTok{\textquotesingle{}C\textquotesingle{}}
+    \KeywordTok{AND} \KeywordTok{EXISTS}\NormalTok{ (}\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ lineitem}
+        \KeywordTok{WHERE}\NormalTok{ lineitem.itemno }\OperatorTok{=}\NormalTok{ item.itemno);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{4 records}\tabularnewline
+\toprule()
+itemname & itemcolor \\
+\midrule()
+\endfirsthead
+\toprule()
+itemname & itemcolor \\
+\midrule()
+\endhead
+Hat - Polar explorer & Red \\
+Boots - snake proof & Black \\
+Pith helmet & White \\
+Stetson & Black \\
+\bottomrule()
+\end{longtable}
+
+Conceptually, we can think of this query as evaluating the subquery for
+each row of item. The first item with itemtype = `C', Hat---Polar
+Explorer (red), in item has itemno = 6. Thus, the query becomes
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname, itemcolor }\KeywordTok{FROM}\NormalTok{ item}
+    \KeywordTok{WHERE}\NormalTok{ itemtype }\OperatorTok{=} \StringTok{\textquotesingle{}C\textquotesingle{}}
+    \KeywordTok{AND} \KeywordTok{EXISTS}\NormalTok{ (}\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ lineitem}
+        \KeywordTok{WHERE}\NormalTok{ lineitem.itemno }\OperatorTok{=} \DecValTok{6}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+Because there is at least one row in \texttt{lineitem} with
+\texttt{itemno} = 6, the subquery returns \emph{true}. The item has been
+sold and should be reported. The second clothing item, Hat---Polar
+Explorer (white), in \texttt{item} has \texttt{itemno} = 7. There are no
+rows in \texttt{lineitem} with \texttt{itemno} = 7, so the subquery
+returns \emph{false}. That item has not been sold and should not be
+reported.
+
+You can also think of the query as, ``Select clothing items for which a
+sale exists.'' Remember, for EXISTS to return \emph{true}, there needs
+to be only one row for which the condition is \emph{true}.
+
+\hypertarget{not-existsselect-a-value-if-it-does-not-exist}{%
+\subsubsection{NOT EXISTS---select a value if it does not
+exist}\label{not-existsselect-a-value-if-it-does-not-exist}}
+
+NOT EXISTS is the negative of EXISTS. It is used in a WHERE clause to
+test whether all rows in a table fail to satisfy a specified condition.
+It returns the value \emph{true} if there are no rows satisfying the
+condition; otherwise it returns \emph{false}.
+
+\emph{Report all clothing items that have not been sold.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname, itemcolor }\KeywordTok{FROM}\NormalTok{ item}
+    \KeywordTok{WHERE}\NormalTok{ itemtype }\OperatorTok{=} \StringTok{\textquotesingle{}C\textquotesingle{}}
+    \KeywordTok{AND} \KeywordTok{NOT} \KeywordTok{EXISTS}
+\NormalTok{        (}\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ lineitem}
+            \KeywordTok{WHERE}\NormalTok{ item.itemno }\OperatorTok{=}\NormalTok{ lineitem.itemno);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{4 records}\tabularnewline
+\toprule()
+itemname & itemcolor \\
+\midrule()
+\endfirsthead
+\toprule()
+itemname & itemcolor \\
+\midrule()
+\endhead
+Hat - Polar explorer & White \\
+Boots - snake proof & Green \\
+Pith helmet & Khaki \\
+Stetson & Brown \\
+\bottomrule()
+\end{longtable}
+
+You can also think of the query as, ``Select clothing items for which no
+sales exist.'' Also remember, for NOT EXISTS to return \emph{true}, no
+rows should satisfy the condition.
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+Report all red items that have not been sold. Write the query twice,
+once using EXISTS and once without EXISTS.
+\end{quote}
+
+\hypertarget{set-operations}{%
+\subsubsection*{Set operations}\label{set-operations}}
+\addcontentsline{toc}{subsubsection}{Set operations}
+
+Set operators are useful for combining the values derived from two or
+more SQL queries. The UNION operation is equivalent to \emph{or}.
+
+\emph{List items that were sold on January 16, 2011, or are brown.}
+
+Resolution of this query requires two tables: one to report items sold
+on January 16, 2011, and one to report the brown items. UNION (i.e., or)
+then combines the results of the tables, including \emph{any} rows in
+both tables and excluding duplicate rows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname }\KeywordTok{FROM}\NormalTok{ item }\KeywordTok{JOIN}\NormalTok{ lineitem}
+    \KeywordTok{ON}\NormalTok{ item.itemno }\OperatorTok{=}\NormalTok{ lineitem.itemno}
+    \KeywordTok{JOIN}\NormalTok{ sale}
+    \KeywordTok{ON}\NormalTok{ lineitem.saleno }\OperatorTok{=}\NormalTok{ sale.saleno}
+    \KeywordTok{WHERE}\NormalTok{ saledate }\OperatorTok{=} \StringTok{\textquotesingle{}2011{-}01{-}16\textquotesingle{}}
+\KeywordTok{UNION}
+    \KeywordTok{SELECT}\NormalTok{ itemname }\KeywordTok{FROM}\NormalTok{ item }\KeywordTok{WHERE}\NormalTok{ itemcolor }\OperatorTok{=} \StringTok{\textquotesingle{}Brown\textquotesingle{}}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}l@{}}
+\caption{8 records}\tabularnewline
+\toprule()
+itemname \\
+\midrule()
+\endfirsthead
+\toprule()
+itemname \\
+\midrule()
+\endhead
+Safari chair \\
+Hammock \\
+Tent - 8 person \\
+Tent - 2 person \\
+Pocket knife - Avon \\
+Pocket knife - Nile \\
+Map case \\
+Stetson \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+List the items that contain the words ``Hat'', ``Helmet'', or
+``Stetson'' in their names
+\end{quote}
+
+\hypertarget{summary-2}{%
+\subsection*{Summary}\label{summary-2}}
+\addcontentsline{toc}{subsection}{Summary}
+
+There can be a many-to-many (m:m) relationship between entities, which
+is represented by creating an associative entity and two 1:m
+relationships. An associative entity stores data about an m:m
+relationship. The join operation can be extended from two tables to
+three or more tables. EXISTS tests whether a table has at least one row
+that meets a specified condition. NOT EXISTS tests whether all rows in a
+table do not satisfy a specified condition. Both EXISTS and NOT EXISTS
+can return \emph{true} or \emph{false}. The relational operation divide,
+also known as \emph{forall}, can be translated into a double negative.
+It is represented in SQL by a query containing two NOT EXISTS
+statements. Set operations enable the results of queries to be combined.
+
+\hypertarget{key-terms-and-concepts-2}{%
+\subsection*{Key terms and concepts}\label{key-terms-and-concepts-2}}
+\addcontentsline{toc}{subsection}{Key terms and concepts}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+\endhead
+Associative entity & Many-to-many (m:m) relationship \\
+Divide & NOT EXISTS \\
+Existential quantifier & UNION \\
+EXISTS & Universal quantifier \\
+INTERSECT & \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{exercises-2}{%
+\subsection*{Exercises}\label{exercises-2}}
+\addcontentsline{toc}{subsection}{Exercises}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Write the following SQL queries for the database described in this
+  chapter:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    List the names of items for which the quantity sold is greater than
+    one for any sale.
+  \item
+    Compute the total value of sales for each item by date.
+  \item
+    Report all items of type ``F'' that have been sold.
+  \item
+    List all items of type ``F'' that have not been sold.
+  \item
+    Compute the total value of each sale.
+  \end{enumerate}
+\item
+  Why do you have to create a third entity when you have an m:m
+  relationship?
+\item
+  What does a plus sign near a relationship arc mean?
+\item
+  How does EXISTS differ from other clauses in an SQL statement?
+\item
+  Answer the following queries based on the described relational
+  database.
+
+  \includegraphics[width=4.61458in,height=\textheight]{Figures/Chapter 5/gift.png}
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    List the phone numbers of donors Hays and Jefts.
+  \item
+    How many donors are there in the donor table?
+  \item
+    How many people made donations in 1999?
+  \item
+    What is the name of the person who made the largest donation in
+    1999?
+  \item
+    What was the total amount donated in 2000?
+  \item
+    List the donors who have made a donation every year.
+  \item
+    List the donors whose average donation is more than twice the
+    average donation of all donors.
+  \item
+    List the total amount given by each person across all years; sort
+    the report by the donor's name.
+  \item
+    Report the total donations in 2001 by state.
+  \item
+    In which years did the total donated exceed the goal for the year?
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{sql}{%
+\section{SQL}\label{sql}}
+
+\begin{quote}
+\emph{The questing beast}.
+
+Sir Thomas Malory, \emph{Le Morte D'Arthur}, 1470
+\end{quote}
+
+\hypertarget{learning-objectives-3}{%
+\subsubsection*{Learning objectives}\label{learning-objectives-3}}
+\addcontentsline{toc}{subsubsection}{Learning objectives}
+
+Students completing this chapter will have a detailed knowledge of SQL.
+
+\hypertarget{structured-query-language}{%
+\subsection*{Structured query
+language}\label{structured-query-language}}
+\addcontentsline{toc}{subsection}{Structured query language}
+
+\textbf{Structured query language} (SQL) is widely used as a relational
+database language, and SQL skills are essential for data management in a
+world that is increasingly reliant on database technology. SQL
+originated in the IBM Research Laboratory in San Jose, California.
+Versions have since been implemented by commercial database vendors and
+open source teams for a wide range of operating systems. Both the
+American National Standards Institute (ANSI) and the International
+Organization for Standardization (ISO) have designated SQL as a standard
+language for relational database systems.
+
+SQL is a \textbf{complete database language}. It is used for defining a
+relational database, creating views, and specifying queries. In
+addition, it allows for rows to be inserted, updated, and deleted. In
+database terminology, it is both a \textbf{data definition language}
+(DDL), a \textbf{data manipulation language} (DML), and a \textbf{data
+control language} (DCL). SQL, however, is not a complete programming
+language like Python, R, and Java. Because SQL statements can be
+embedded into general-purpose programming languages, SQL is often used
+in conjunction with such languages to create application programs. The
+\textbf{embedded SQL} statements handle the database processing, and the
+statements in the general-purpose language perform the necessary tasks
+to complete the application.
+
+\hypertarget{data-types}{%
+\subsection*{Data types}\label{data-types}}
+\addcontentsline{toc}{subsection}{Data types}
+
+Some of the variety of data types that can be used are depicted in the
+following figure and described in more detail in the following pages.
+
+\emph{Data types}
+
+\includegraphics{Figures/Chapter 10/data types.png}
+
+\hypertarget{boolean}{%
+\subsubsection*{BOOLEAN}\label{boolean}}
+\addcontentsline{toc}{subsubsection}{BOOLEAN}
+
+Boolean data types can have the values true, false, or unknown.
+
+\hypertarget{smallint-and-integer}{%
+\subsubsection*{SMALLINT and INTEGER}\label{smallint-and-integer}}
+\addcontentsline{toc}{subsubsection}{SMALLINT and INTEGER}
+
+Most commercial computers have a 32-bit word, where a word is a unit of
+storage. An integer can be stored in a full word or half a word. If it
+is stored in a full word (INTEGER), then it can be 31 binary digits in
+length. If half-word storage is used (SMALLINT), then it can be 15
+binary digits long. In each case, one bit is used for the sign of the
+number. A column defined as INTEGER can store a number in the range
+-2\textsuperscript{31} to 2\textsuperscript{31}-1 or -2,147,483,648 to
+2,147,483,647. A column defined as SMALLINT can store a number in the
+range -2\textsuperscript{15} to 2\textsuperscript{15}-1 or -32,768 to
+32,767. Just remember that INTEGER is good for ±2 billion and SMALLINT
+for ±32,000.
+
+\hypertarget{float}{%
+\subsubsection*{FLOAT}\label{float}}
+\addcontentsline{toc}{subsubsection}{FLOAT}
+
+Scientists often deal with numbers that are very large (e.g., Avogadro's
+number is 6.02252×10\textsuperscript{23}) or very small (e.g., Planck's
+constant is 6.6262×10\textsuperscript{-34} joule sec). The FLOAT data
+type is used for storing such numbers, often referred to as
+\emph{floating-point} numbers. A single-precision floating-point number
+requires 32 bits and can represent numbers in the range
+-7.2×10\textsuperscript{75} to -5.4×10\textsuperscript{-79}, 0,
+5.4×10\textsuperscript{-79} to 7.2×10\textsuperscript{75} with a
+precision of about 7 decimal digits. A double-precision floating-point
+number requires 64 bits. The range is the same as for a single-precision
+floating-point number. The extra 32 bits are used to increase precision
+to about 15 decimal digits.
+
+In the specification FLOAT(n), if \emph{n} is between 1 and 21
+inclusive, single-precision floating-point is selected. If \emph{n} is
+between 22 and 53 inclusive, the storage format is double-precision
+floating-point. If \emph{n} is not specified, double-precision
+floating-point is assumed.
+
+\hypertarget{decimal}{%
+\subsubsection*{DECIMAL}\label{decimal}}
+\addcontentsline{toc}{subsubsection}{DECIMAL}
+
+Binary is the most convenient form of storing data from a computer's
+perspective. People, however, work with a decimal number system. The
+DECIMAL data type is convenient for business applications because data
+storage requirements are defined in terms of the maximum number of
+places to the left and right of the decimal point. To store the current
+value of an ounce of gold, you would possibly use DECIMAL(6,2) because
+this would permit a maximum value of \$9,999.99. Notice that the general
+form is DECIMAL(p,q), where p is the total number of digits in the
+column, and q is the number of digits to the right of the decimal point.
+
+\hypertarget{char-and-varchar}{%
+\subsubsection*{CHAR and VARCHAR}\label{char-and-varchar}}
+\addcontentsline{toc}{subsubsection}{CHAR and VARCHAR}
+
+Nonnumeric columns are stored as character strings. A person's family
+name is an example of a column that is stored as a character string.
+CHAR(n) defines a column that has a fixed length of n characters, where
+n can be a maximum of 255.
+
+When a column's length can vary greatly, it makes sense to define the
+field as VARCHAR. A column defined as VARCHAR consists of two parts: a
+header indicating the length of the character string and the string. If
+a table contains a column that occasionally stores a long string of text
+(e.g., a message field), then defining it as VARCHAR makes sense.
+VARCHAR can store strings up to 65,535 characters long.
+
+Why not store all character columns as VARCHAR and save space? There is
+a price for using VARCHAR with some relational systems. \emph{First},
+additional space is required for the header to indicate the length of
+the string. \emph{Second}, additional processing time is required to
+handle a variable-length string compared to a fixed-length string.
+Depending on the RDBMS and processor speed, these might be important
+considerations, and some systems will automatically make an appropriate
+choice. For example, if you use both data types in the same table, MySQL
+will automatically change CHAR into VARCHAR for compatibility reasons.
+
+There are some columns where there is no trade-off because all possible
+entries are always the same length. Canadian postal codes, for instance,
+are always six characters (e.g., the postal code for Ottawa is K1A0A1).
+
+Data compression is another approach to the \emph{space wars} problem. A
+database can be defined with generous allowances for fixed-length
+character columns so that few values are truncated. Data compression can
+be used to compress the file to remove \emph{wasted} space. Data
+compression, however, is slow and will increase the time to process
+queries. You save space at the cost of time, and save time at the cost
+of space. When dealing with character fields, the database designer has
+to decide whether time or space is more important.
+
+\hypertarget{times-and-dates}{%
+\subsubsection*{Times and dates}\label{times-and-dates}}
+\addcontentsline{toc}{subsubsection}{Times and dates}
+
+Columns that have a data type of DATE are stored as \emph{yyyymmdd}
+(e.g., 2022-11-04 for November 4, 2022). There are two reasons for this
+format. \emph{First,} it is convenient for sorting in chronological
+order. The common American way of writing dates (\emph{mmddyy}) requires
+processing before chronological sorting. \emph{Second}, the full form of
+the year should be recorded for exactness.
+
+For similar reasons, it makes sense to store times in the form
+\emph{hhmmss} with the understanding that this is 24-hour time (also
+known as European time and military time). This is the format used for
+data type TIME.
+
+Some applications require precise recording of events. For example,
+transaction processing systems typically record the time a transaction
+was processed by the system. Because computers operate at high speed,
+the TIMESTAMP data type records date and time with microsecond accuracy.
+A timestamp has seven parts: year, month, day, hour, minute, second, and
+microsecond. Date and time are defined as previously described (i.e.,
+\emph{yyyymmdd} and \emph{hhmmss}, respectively). The range of the
+microsecond part is 000000 to 999999.
+
+Although times and dates are stored in a particular format, the
+formatting facilities that generally come with a RDBMS usually allow
+tailoring of time and date output to suit local standards. Thus for a
+U.S. firm, date might appear on a report in the form \emph{mm/dd/yy};
+for a European firm following the ISO standard, date would appear as
+\emph{yyyy-mm-dd}.
+
+SQL-99 introduced the INTERVAL data type, which is a single value
+expressed in some unit or units of time (e.g., 6 years, 5 days, 7
+hours).
+
+\hypertarget{blob-binary-large-object}{%
+\subsubsection*{BLOB (binary large
+object)}\label{blob-binary-large-object}}
+\addcontentsline{toc}{subsubsection}{BLOB (binary large object)}
+
+BLOB is a large-object data type that stores any kind of binary data.
+Binary data typically consists of a saved spreadsheet, graph, audio
+file, satellite image, voice pattern, or any digitized data. The BLOB
+data type has no maximum size.
+
+\hypertarget{clob-character-large-object}{%
+\subsubsection*{CLOB (character large
+object)}\label{clob-character-large-object}}
+\addcontentsline{toc}{subsubsection}{CLOB (character large object)}
+
+CLOB is a large-object data type that stores any kind of character data.
+Text data typically consists of reports, correspondence, chapters of a
+manual, or contracts. The CLOB data type has no maximum size.
+
+\begin{quote}
+❓ \emph{Skill builder}
+
+What data types would you recommend for the following?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A book's ISBN
+\item
+  A photo of a product
+\item
+  The speed of light (2.9979 × 10\textsuperscript{8} meters per second)
+\item
+  A short description of an animal's habitat
+\item
+  The title of a Japanese book
+\item
+  A legal contract
+\item
+  The status of an electrical switch
+\item
+  The date and time a reservation was made
+\item
+  An item's value in euros
+\item
+  The number of children in a family
+\end{enumerate}
+\end{quote}
+
+\hypertarget{scalar-functions}{%
+\subsection*{Scalar functions}\label{scalar-functions}}
+\addcontentsline{toc}{subsection}{Scalar functions}
+
+Most implementations of SQL include functions that can be used in
+arithmetic expressions, and for data conversion or data extraction. The
+following sampling of these functions will give you an idea of what is
+available. You will need to consult the documentation for your version
+of SQL to determine the functions it supports. For example, Microsoft
+SQL Server has more than 100 additional functions.
+
+\emph{Some examples of SQL's built-in scalar functions}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4167}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5833}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Function
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule()
+\endhead
+CURRENT\_DATE() & Retrieves the current date \\
+EXTRACT(date\_time\_part FROM expression) & Retrieves part of a time or
+date (e.g., YEAR, MONTH, DAY, HOUR, MINUTE, or SECOND) \\
+SUBSTRING(str, pos, len) & Retrieves a string of length len starting at
+position pos from string str \\
+\bottomrule()
+\end{longtable}
+
+Some examples for you to run
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \FunctionTok{extract}\NormalTok{(}\DataTypeTok{day}\NormalTok{) }\KeywordTok{FROM} \FunctionTok{CURRENT\_DATE}\NormalTok{());}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ SUBSTRING(\textasciigrave{}person first\textasciigrave{}, }\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{), \textasciigrave{}person last\textasciigrave{} }\KeywordTok{FROM}\NormalTok{ person;}
+\end{Highlighting}
+\end{Shaded}
+
+A vendor's additional functions can be very useful. Remember, though,
+that use of a vendor's extensions might limit portability.
+
+\hypertarget{formatting}{%
+\subsection*{Formatting}\label{formatting}}
+\addcontentsline{toc}{subsection}{Formatting}
+
+You will likely have noticed that some queries report numeric values
+with a varying number of decimal places. The FORMAT function gives you
+control over the number of decimal places reported, as illustrated in
+the following example where yield is reported with two decimal places.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrprice, shrqty, FORMAT(shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+  \KeywordTok{AS}\NormalTok{ yield}
+    \KeywordTok{FROM} \KeywordTok{share}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+When you use format you create a string, but you often want to sort on
+the numeric value of the formatted field. The following example
+illustrates how to do this.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrprice, shrqty, FORMAT(shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+  \KeywordTok{AS}\NormalTok{ yield }\KeywordTok{FROM} \KeywordTok{share}
+      \KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100} \KeywordTok{DESC}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Run the following code to see the difference.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ shrfirm, shrprice, shrqty, FORMAT(shrdiv}\OperatorTok{/}\NormalTok{shrprice}\OperatorTok{*}\DecValTok{100}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+  \KeywordTok{AS}\NormalTok{ yield }\KeywordTok{FROM} \KeywordTok{share}
+      \KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ yield }\KeywordTok{DESC}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{data-manipulation}{%
+\subsection*{Data manipulation}\label{data-manipulation}}
+\addcontentsline{toc}{subsection}{Data manipulation}
+
+SQL supports four DML statements---SELECT, INSERT, UPDATE, and DELETE.
+Most attention is focussed on SELECT because of the variety of ways in
+which it can be used. First, we need to understand why we must qualify
+column names and temporary names.
+
+\hypertarget{qualifying-column-names}{%
+\subsubsection*{Qualifying column names}\label{qualifying-column-names}}
+\addcontentsline{toc}{subsubsection}{Qualifying column names}
+
+Ambiguous references to column names are avoided by qualifying a column
+name with its table name, especially when the same column name is used
+in several tables. Clarity is maintained by prefixing the column name
+with the table name. The following example demonstrates qualification of
+the \texttt{natcode}, which appears in both \texttt{stock} and
+\texttt{nation}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm, stkprice }\KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+    \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{select}{%
+\subsubsection*{SELECT}\label{select}}
+\addcontentsline{toc}{subsubsection}{SELECT}
+
+The SELECT statement is by far the most interesting and challenging of
+the four DML statements. It reveals a major benefit of the relational
+model: powerful interrogation capabilities. It is challenging because
+mastering the power of SELECT requires considerable practice with a wide
+range of queries. The major varieties of SELECT are presented in this
+section.
+
+The general format of SELECT is
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ [}\KeywordTok{DISTINCT}\NormalTok{] item(s) }\KeywordTok{FROM} \KeywordTok{table}\NormalTok{(s)}
+\NormalTok{    [}\KeywordTok{WHERE}\NormalTok{ condition]}
+\NormalTok{    [}\KeywordTok{GROUP} \KeywordTok{BY} \KeywordTok{column}\NormalTok{(s)] [}\KeywordTok{HAVING}\NormalTok{ condition]}
+\NormalTok{    [}\KeywordTok{ORDER} \KeywordTok{BY} \KeywordTok{column}\NormalTok{(s)];}
+\end{Highlighting}
+\end{Shaded}
+
+Alternatively, we can diagram the structure of SELECT.
+
+\emph{Structure of SELECT}
+
+\includegraphics{Figures/Chapter 10/select structure.png}
+
+\hypertarget{product}{%
+\subsubsection*{Product}\label{product}}
+\addcontentsline{toc}{subsubsection}{Product}
+
+Product, or more strictly Cartesian product, is a fundamental operation
+of relational algebra. It is rarely used by itself in a query; however,
+understanding its effect helps in comprehending join. The product of two
+tables is a new table consisting of all rows of the first table
+concatenated with all possible rows of the second table. For example:
+
+\emph{Form the product of stock and nation.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ stock, nation;}
+\end{Highlighting}
+\end{Shaded}
+
+Run the query and observe that the new table contains 64 rows (16*4),
+where \texttt{stock} has 16 rows and \texttt{nation} has 4 rows. It has
+10 columns (7 + 3), where \texttt{stock} has 7 columns and
+\texttt{nation} has 3 columns. Note that each row in \texttt{stock} is
+concatenated with each row in \texttt{nation}.
+
+\hypertarget{inner-join}{%
+\subsubsection*{Inner join}\label{inner-join}}
+\addcontentsline{toc}{subsubsection}{Inner join}
+
+Inner join, often referred to as join, is a powerful and frequently used
+operation. It creates a new table from two existing tables by matching
+on a column common to both tables. An \textbf{equijoin} is the simplest
+form of join; in this case, columns are matched on equality.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation}
+    \KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode;}
+\end{Highlighting}
+\end{Shaded}
+
+There are other ways of expressing join that are more concise. For
+example, we can write
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{INNER} \KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{USING}\NormalTok{ (natcode);}
+\end{Highlighting}
+\end{Shaded}
+
+The preceding syntax implicitly recognizes the frequent use of the same
+column name for matching primary and foreign keys.
+
+A further simplification is to rely on the primary and foreign key
+definitions to determine the join condition, so we can write
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \OperatorTok{*} \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{NATURAL} \KeywordTok{JOIN}\NormalTok{ nation;}
+\end{Highlighting}
+\end{Shaded}
+
+An equijoin creates a new table that contains two identical columns. If
+one of these is dropped, then the remaining table is called a natural
+join.
+
+As you now realize, join can be thought of as a product with a condition
+clause. There is no reason why this condition needs to be restricted to
+equality. There could easily be another comparison operator between the
+two columns. This general version is called a theta-join because theta
+is a variable that can take any value from the set `=', `\textless{}',
+`\textless=', `\textgreater{}', and `\textgreater='.
+
+\hypertarget{outer-join}{%
+\subsubsection*{Outer join}\label{outer-join}}
+\addcontentsline{toc}{subsubsection}{Outer join}
+
+An inner join reports those rows where the primary and foreign keys
+match. There are also situations where you might want an outer join,
+which comes in three flavors as shown in the following figure.
+
+\emph{Types of joins}
+
+\includegraphics{Figures/Chapter 10/joins.png}
+
+A traditional join, more formally known as an inner join, reports those
+rows where the primary and foreign keys match. An outer join reports
+these matching rows and other rows depending on which form is used, as
+the following examples illustrate for the sample table.
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule()
+t1 & & & t2 & \\
+\midrule()
+\endhead
+id & col1 & & id & col2 \\
+1 & a & & 1 & x \\
+2 & b & & 3 & y \\
+3 & c & & 5 & z \\
+\bottomrule()
+\end{longtable}
+
+A \textbf{left outer join} is an inner join plus those rows from t1 not
+included in the inner join.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \KeywordTok{id}\NormalTok{, col1, col2 }\KeywordTok{FROM}\NormalTok{ t1 }\KeywordTok{LEFT} \KeywordTok{JOIN}\NormalTok{ t2 }\KeywordTok{USING}\NormalTok{ (}\KeywordTok{id}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+id & col1 & col2 \\
+\midrule()
+\endhead
+1 & a & x \\
+2 & b & null \\
+3 & c & y \\
+\bottomrule()
+\end{longtable}
+
+Here is an example to illustrate the use of a left join.
+
+\emph{For all brown items, report each sale. Include in the report those
+brown items that have appeared in no sales.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ itemname, saleno, lineqty }\KeywordTok{FROM}\NormalTok{ item}
+    \KeywordTok{LEFT} \KeywordTok{JOIN}\NormalTok{ lineitem }\KeywordTok{USING}\NormalTok{ (itemno)}
+        \KeywordTok{WHERE}\NormalTok{ itemcolor }\OperatorTok{=} \StringTok{\textquotesingle{}Brown\textquotesingle{}}
+        \KeywordTok{ORDER} \KeywordTok{BY}\NormalTok{ itemname;}
+\end{Highlighting}
+\end{Shaded}
+
+A \textbf{right outer join} is an inner join plus those rows from t2 not
+included in the inner join.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \KeywordTok{id}\NormalTok{, col1, col2 }\KeywordTok{FROM}\NormalTok{ t1 }\KeywordTok{RIGHT} \KeywordTok{JOIN}\NormalTok{ t2 }\KeywordTok{USING}\NormalTok{ (}\KeywordTok{id}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+Id & col1 & col2 \\
+\midrule()
+\endhead
+1 & a & x \\
+3 & c & y \\
+5 & null & z \\
+\bottomrule()
+\end{longtable}
+
+A \textbf{full outer join} is an inner join plus those rows from t1 and
+t2 not included in the inner join.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \KeywordTok{id}\NormalTok{, col1, col2 }\KeywordTok{FROM}\NormalTok{ t1 }\KeywordTok{FULL} \KeywordTok{JOIN}\NormalTok{ t2 }\KeywordTok{USING}\NormalTok{ (}\KeywordTok{id}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule()
+id & col1 & col2 \\
+\midrule()
+\endhead
+1 & a & x \\
+2 & b & null \\
+3 & c & y \\
+5 & null & z \\
+\bottomrule()
+\end{longtable}
+
+MySQL does not support a full outer join, rather you must use a union of
+left and right outer joins.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT} \KeywordTok{id}\NormalTok{, col1, col2 }\KeywordTok{FROM}\NormalTok{ t1 }\KeywordTok{LEFT} \KeywordTok{JOIN}\NormalTok{ t2 }\KeywordTok{USING}\NormalTok{ (}\KeywordTok{id}\NormalTok{)}
+\KeywordTok{UNION}
+\KeywordTok{SELECT} \KeywordTok{id}\NormalTok{, col1, col2 }\KeywordTok{FROM}\NormalTok{ t1 }\KeywordTok{RIGHT} \KeywordTok{JOIN}\NormalTok{ t2 }\KeywordTok{USING}\NormalTok{ (}\KeywordTok{id}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simple-subquery}{%
+\subsubsection*{Simple subquery}\label{simple-subquery}}
+\addcontentsline{toc}{subsubsection}{Simple subquery}
+
+A subquery is a query within a query. There is a SELECT statement nested
+inside another SELECT statement. Simple subqueries were used extensively
+in earlier chapters. For reference, here is a simple subquery used
+earlier:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ stkfirm }\KeywordTok{FROM}\NormalTok{ stock}
+    \KeywordTok{WHERE}\NormalTok{ natcode }\KeywordTok{IN}
+\NormalTok{        (}\KeywordTok{SELECT}\NormalTok{ natcode }\KeywordTok{FROM}\NormalTok{ nation}
+            \KeywordTok{WHERE}\NormalTok{ natname }\OperatorTok{=} \StringTok{\textquotesingle{}Australia\textquotesingle{}}\NormalTok{);}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{aggregate-functions-1}{%
+\subsubsection*{Aggregate functions}\label{aggregate-functions-1}}
+\addcontentsline{toc}{subsubsection}{Aggregate functions}
+
+SQL's aggregate functions increase its retrieval power. These functions
+were covered earlier and are only mentioned briefly here for
+completeness. The five aggregate functions are shown in the following
+table. Nulls in the column are ignored in the case of SUM, AVG, MAX, and
+MIN. COUNT(*) does not distinguish between null and non-null values in a
+column. Use COUNT(columnname) to exclude a null value in columnname.
+
+\emph{Aggregate functions}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Function & Description \\
+\midrule()
+\endhead
+COUNT & Counts the number of values in a column \\
+SUM & Sums the values in a column \\
+AVG & Determines the average of the values in a column \\
+MAX & Determines the largest value in a column \\
+MIN & Determines the smallest value in a column \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{group-by-and-having}{%
+\subsubsection*{GROUP BY and HAVING}\label{group-by-and-having}}
+\addcontentsline{toc}{subsubsection}{GROUP BY and HAVING}
+
+The GROUP BY clause is an elementary form of control break reporting and
+supports grouping of rows that have the same value for a specified
+column and produces one row for each different value of the grouping
+column. For example,
+
+\emph{Report by nation the total value of stockholdings.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ natname, }\FunctionTok{SUM}\NormalTok{(stkprice}\OperatorTok{*}\NormalTok{stkqty}\OperatorTok{*}\NormalTok{exchrate) }\KeywordTok{AS}\NormalTok{ total}
+    \KeywordTok{FROM}\NormalTok{ stock }\KeywordTok{JOIN}\NormalTok{ nation }\KeywordTok{ON}\NormalTok{ stock.natcode }\OperatorTok{=}\NormalTok{ nation.natcode}
+        \KeywordTok{GROUP} \KeywordTok{BY}\NormalTok{ natname;}
+\end{Highlighting}
+\end{Shaded}
+
+The HAVING clause is often associated with GROUP BY. It can be thought
+of as the WHERE clause of GROUP BY because it is used to eliminate rows
+for a GROUP BY condition. Both GROUP BY and HAVING are dealt with
+in-depth in Chapter 4.
+
+\hypertarget{regexp}{%
+\subsubsection*{REGEXP}\label{regexp}}
+\addcontentsline{toc}{subsubsection}{REGEXP}
+
+The REGEXP clause supports pattern matching to find a defined set of
+strings in a character column (CHAR or VARCHAR). Refer to Chapters 3 and
+4 for more details.
+
+\hypertarget{universal-unique-identifier-uuid}{%
+\subsection*{Universal Unique Identifier
+(UUID)}\label{universal-unique-identifier-uuid}}
+\addcontentsline{toc}{subsection}{Universal Unique Identifier (UUID)}
+
+A \textbf{Universally Unique Identifier} (UUID) is a generated number
+that is globally unique even if generated by independent programs on
+different computers. The~probability~that a UUID is not unique is close
+enough to zero to be negligible. More precisely, the probability of a
+duplicate within 103 trillion UUIDs is one in a billion.
+
+A UUID is a 128-bit number generated by combining a timestamp and the
+generating computers's node id to create an identifier that it
+temporally and spatially different. A UUID is useful when you want to
+support different programs on different computers inserting rows in a
+distributed database.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{SELECT}\NormalTok{ UUID() }\KeywordTok{AS}\NormalTok{ UUID\_Value;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{nullsmuch-ado-about-missing-information}{%
+\subsection*{Nulls---much ado about missing
+information}\label{nullsmuch-ado-about-missing-information}}
+\addcontentsline{toc}{subsection}{Nulls---much ado about missing
+information}
+
+Nulls are overworked in SQL because they can represent several
+situations. Null can represent unknown information. For example, you
+might add a new stock to the database, but lacking details of its latest
+dividend, you leave the field null. Null can be used to represent a
+value that is inapplicable. For instance, the employee table contains a
+null value in bossno for Alice because she has no boss. The value is not
+unknown; it is not applicable for that field. In other cases, null might
+mean ``no value supplied'' or ``value undefined.'' Because null can have
+multiple meanings, the client must infer which meaning is appropriate to
+the circumstances.
+
+Do not confuse null with blank or zero, which are values. In fact, null
+is a marker that specifies that the value for the particular column is
+null. Thus, null represents no value.
+
+The well-known database expert Chris Date has been outspoken in his
+concern about the confusion caused by nulls. His advice is that nulls
+should be explicitly avoided by specifying NOT NULL for all columns and
+by using codes to make the meaning of a value clear (e.g., ``U'' means
+``unknown,'' ``I'' means ``inapplicable,'' and ``N'' means ``not
+supplied'').
+
+\hypertarget{the-future-of-sql}{%
+\subsection*{The future of SQL}\label{the-future-of-sql}}
+\addcontentsline{toc}{subsection}{The future of SQL}
+
+Since 1986, developers of database applications have benefited from an
+SQL standard, one of the more successful standardization stories in the
+software industry. Although most database vendors have implemented
+proprietary extensions of SQL, standardization has kept the language
+consistent, and SQL code is highly portable. Standardization was
+relatively easy when focused on the storage and retrieval of numbers and
+characters. Objects have made standardization more difficult.
+
+\hypertarget{summary-3}{%
+\subsubsection*{Summary}\label{summary-3}}
+\addcontentsline{toc}{subsubsection}{Summary}
+
+Structured Query Language (SQL), a widely used relational database
+language, has been adopted as a standard by ANSI and ISO. It is a data
+definition language (DDL), data manipulation language (DML), and data
+control language (DCL).
+
+A base table is an autonomous, named table. A key is one or more columns
+identified as such in the description of a table or a referential
+constraint. SQL supports primary, foreign, and unique keys.
+
+Numeric, string, date, or graphic data can be stored in a column. BLOB
+and CLOB are data types for large fields.
+
+Ambiguous references to column names are avoided by qualifying a column
+name with its table name. A table or view can be given a temporary name
+that remains current for a query.
+
+SELECT provides powerful interrogation facilities. The product of two
+tables is a new table consisting of all rows of the first table
+concatenated with all possible rows of the second table. Join creates a
+new table from two existing tables by matching on a column common to
+both tables. A subquery is a query within a query.
+
+SQL's aggregate functions increase its retrieval power. GROUP BY
+supports grouping of rows that have the same value for a specified
+column. The REXEXP clause supports pattern matching. SQL includes scalar
+functions that can be used in arithmetic expressions, data conversion,
+or data extraction. Nulls cause problems because they can represent
+several situations---unknown information, inapplicable information, no
+value supplied, or value undefined. Remember, a null is not a blank or
+zero.
+
+\hypertarget{references-and-additional-readings}{%
+\subsubsection*{References and additional
+readings}\label{references-and-additional-readings}}
+\addcontentsline{toc}{subsubsection}{References and additional readings}
+
+Date, C. J. 2003. \emph{An introduction to database systems}. 8th ed.
+Reading, MA: Addison-Wesley.
+
+\end{document}

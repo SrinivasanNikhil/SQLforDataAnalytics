@@ -1,5 +1,7 @@
 # Preface {.unnumbered}
-Editors Note - This is the original preface of the text written by the author "Richard Watson". I am leaving this preface in place to keep the specific acknowledgements made in this document. Not all of the content in this preface applies to this version of the text for the SQL for Data Analytics course. 
+
+*Editors Note* This is the original preface of the text written by the author "Richard Watson". I am leaving this preface in place to keep the specific acknowledgements made in this document. Not all of the content in this preface applies to this version of the text for the SQL for Data Analytics course. 
+
 ---
 
 This is not your traditional database textbook. It differs in three
